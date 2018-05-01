@@ -9,8 +9,8 @@ import {
 import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import Home from './components/Home/Home';
 import UserPage from './components/UserPage/UserPage';
-import InfoPage from './components/InfoPage/InfoPage';
 
 import './styles/main.css';
 
@@ -19,9 +19,9 @@ const App = () => (
     <Header title="Project Base" />
     <Router>
       <Switch>
-        <Redirect exact from="/" to="/home" />
+        <Redirect exact from="/" to="/login" />
         <Route
-          path="/home"
+          path="/login"
           component={LoginPage}
         />
         <Route
@@ -29,15 +29,17 @@ const App = () => (
           component={RegisterPage}
         />
         <Route
-          path="/user"
-          component={UserPage}
+          path="/home"
+          component={Home}
         />
         <Route
           path="/info"
-          component={InfoPage}
+          component={UserPage}
         />
         {/* OTHERWISE (no path!) */}
-        <Route render={() => <h1>404</h1>} />
+        <Route render={() => <h1>404
+          You're not gonna find what you're looking for here!
+        </h1>} />
 
       </Switch>
     </Router>

@@ -25,7 +25,7 @@ class LoginPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.userName) {
-      this.props.history.push('/user');
+      this.props.history.push('/home');
     }
   }
 
@@ -93,6 +93,12 @@ class LoginPage extends Component {
               name="submit"
               value="Log In"
             />
+             {/* <input// how do i get the continue as guest to work
+              type="submit"
+              name="submit"
+              value="Continue as guest"
+            /> */}
+            <Link to="/home">Continue as guest</Link><br />
             <Link to="/register">Register</Link>
           </div>
         </form>

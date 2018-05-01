@@ -6,27 +6,37 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 const mapStateToProps = state => ({
   user: state.user,
+  //location: ['']
 });
 
-class InfoPage extends Component {
+class Home extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    // this.props.dispatch({ type:GET_LOCATION});
   }
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
+      this.props.history.push('/login');
     }
   }
 
   render() {
-    let content = null;
-
+    console.log(this.props);
+    let location = <span>Hello</span>;
+    // let location = this.props.location.map((item) => {
+    //   return (
+    //     <div> {item} </div>
+    //     // {item.distance} strech goal geo sql library
+    //     // <div>{item.username} {item.count}</div>
+    //   )
+    // });
+    let content = <div></div>;
     if (this.props.user.userName) {
       content = (
         <div>
           <p>
-            Info Page
+            {location}
           </p>
         </div>
       );
@@ -42,4 +52,4 @@ class InfoPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(Home);
