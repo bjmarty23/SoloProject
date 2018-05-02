@@ -10,7 +10,7 @@ import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import Home from './components/Home/Home';
-import User from './components/User/User';
+import User from './components/Update/Update';
 
 import './styles/main.css';
 

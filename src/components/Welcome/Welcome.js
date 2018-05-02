@@ -2,42 +2,42 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
+
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { triggerLogout } from '../../redux/actions/loginActions';
+
 
 const mapStateToProps = state => ({
   user: state.user,
-  location: ['']
 });
 
-class Home extends Component {
+class UserPage extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    this.props.dispatch({ type:GET_LOCATION});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('/login');
+      this.props.history.push('home');
     }
   }
 
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
+  }
+
   render() {
-    console.log(this.props);
-    // let location = <span>Hello</span>;
-    let location = this.props.location.map((item) => {
-      return (
-        <div> {item} </div>
-        // {item.distance} strech goal geo sql library
-    //     // <div>{item.username} {item.count}</div>
-      )
-    });
-    let content = <div></div>;
+    let content = null;
+
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>
-            {location}
-          </p>
+          <h1
+            id="welcome"
+          >
+            Welcome, {this.props.user.userName}!
+          </h1>
           <button
             onClick={this.logout}
           >
@@ -57,4 +57,4 @@ class Home extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(UserPage);
