@@ -7,8 +7,8 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 const mapStateToProps = state => ({
   user: state.user,
-  location: [''],
-  state,
+  location: state.getDataReducer,
+  // state,
 });
 
 class Home extends Component {
