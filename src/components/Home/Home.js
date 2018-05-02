@@ -29,19 +29,22 @@ class Home extends Component {
   render() {
     console.log(this.props);
     // let location = <span>Hello</span>;
-    let location = this.props.location.map((item) => {
+    let locations = this.props.location.map((location) => {
+      console.log('location ',location);
       return (
-        <div> {item} </div>
+        //this needs to to be turned into the details button, beneth.
+        <div key={location.id}> lat:{location.latitude}, long:{location.longitude}, name:{location.name} </div>
         // {item.distance} strech goal geo sql library
     //     // <div>{item.username} {item.count}</div>
       )
     });
-    let content = <div></div>;
+    let content = null;
+    
     if (this.props.user.userName) {
       content = (
         <div>
           <pre>
-            {location}
+            {locations}
           </pre>
           <button
             onClick={this.logout}
