@@ -6,7 +6,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 const mapStateToProps = state => ({
   user: state.user,
-  //location: ['']
+  location: ['']
 });
 
 class Home extends Component {
@@ -23,14 +23,14 @@ class Home extends Component {
 
   render() {
     console.log(this.props);
-    let location = <span>Hello</span>;
-    // let location = this.props.location.map((item) => {
-    //   return (
-    //     <div> {item} </div>
-    //     // {item.distance} strech goal geo sql library
+    // let location = <span>Hello</span>;
+    let location = this.props.location.map((item) => {
+      return (
+        <div> {item} </div>
+        // {item.distance} strech goal geo sql library
     //     // <div>{item.username} {item.count}</div>
-    //   )
-    // });
+      )
+    });
     let content = <div></div>;
     if (this.props.user.userName) {
       content = (
@@ -38,6 +38,11 @@ class Home extends Component {
           <p>
             {location}
           </p>
+          <button
+            onClick={this.logout}
+          >
+            Log Out
+          </button>
         </div>
       );
     }

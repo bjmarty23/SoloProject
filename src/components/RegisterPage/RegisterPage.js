@@ -9,6 +9,8 @@ class RegisterPage extends Component {
       username: '',
       password: '',
       message: '',
+      firstName: '',
+      lastName: '',
     };
   }
 
@@ -26,6 +28,9 @@ class RegisterPage extends Component {
         body: JSON.stringify({
           username: this.state.username,
           password: this.state.password,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          // userinfo: this.state.userinfo //what josh has        
         }),
       });
 
@@ -50,7 +55,13 @@ class RegisterPage extends Component {
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
+      ...this.state,
       [propertyName]: event.target.value,
+       ...this.state.firstName,
+      [propertyName]: event.target.value, 
+      ...this.state.lastName,
+      [propertyName]: event.target.value,
+      // i dont undertand why this works
     });
   }
 
@@ -75,6 +86,27 @@ class RegisterPage extends Component {
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
           <div>
+            <label htmlFor="firstName">
+              First Name:
+              <input
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleInputChangeFor('firstName')}
+              />
+            </label>
+          </div><div>
+            <label htmlFor="lastName">
+                Last name:
+              <input
+                type="text"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleInputChangeFor('lastName')}
+              />
+            </label>
+          </div>
+          <div>
             <label htmlFor="username">
               Username:
               <input
@@ -96,6 +128,7 @@ class RegisterPage extends Component {
               />
             </label>
           </div>
+          
           <div>
             <input
               type="submit"
