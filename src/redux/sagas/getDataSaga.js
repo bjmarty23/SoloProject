@@ -1,4 +1,4 @@
-import { put, takeLatest, takeEvery,call } from 'redux-saga/effects';
+import { put, takeEvery,call } from 'redux-saga/effects';
 import axios from 'axios';
 
 //grabs function before getting to store, and processes.
@@ -6,7 +6,7 @@ function* getData(action){
     console.log('in getDataSaga')
     try {
         const getDataResponse = yield call(axios.get, '/api/location');
-        console.log(getDataResponse)
+        console.log(getDataResponse.data)
         yield put({
             type: 'GET_LOCALDATA',
             payload: getDataResponse.data
@@ -15,7 +15,7 @@ function* getData(action){
 }
 
 function* getDataSaga() {
-    // When GET_LOCATION is dispached, call the getUserInfo function
+    // When GET_LOCATION is dispached, call the getDataSaga function
     yield takeEvery('GET_LOCATION', getData);
 }
 

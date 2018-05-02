@@ -3,16 +3,21 @@ import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+// import {GET_LOCATION } from '../../redux/sagas/sagas';
 
 const mapStateToProps = state => ({
   user: state.user,
-  location: ['']
+  location: [''],
+  state,
 });
 
 class Home extends Component {
+  state = {
+    location: '',
+  }
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    this.props.dispatch({ type:GET_LOCATION});
+    this.props.dispatch({ type:'GET_LOCATION'});
   }
 
   componentDidUpdate() {
@@ -35,9 +40,9 @@ class Home extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>
+          <pre>
             {location}
-          </p>
+          </pre>
           <button
             onClick={this.logout}
           >
