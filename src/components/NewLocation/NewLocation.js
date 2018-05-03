@@ -11,23 +11,19 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 
 const mapStateToProps = state => ({
   user: state.user,
+  location: state.location
 });
 
 class NewLocation extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-  }
+  // componentDidMount() {
+  //   this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+  // }
 
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
-    }
-  }
-
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
-  }
+  // componentDidUpdate() {
+  //   if (!this.props.user.isLoading && this.props.user.userName === null) {
+  //     this.props.history.push('home');
+  //   }
+  // }
 
   render() {
     let content = null;
@@ -36,15 +32,11 @@ class NewLocation extends Component {
       content = (
         <div>
           <h1
-            id="welcome"
+            id="newLocation"
           >
-            Welcome, {this.props.user.userName}!
+            Add new water source!
           </h1>
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+         
         </div>
       );
     }

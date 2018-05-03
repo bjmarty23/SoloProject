@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
+import { Link } from 'react-router-dom';
+
 
 
 const mapStateToProps = state => ({
@@ -28,13 +30,23 @@ class Home extends Component {
     this.props.dispatch(triggerLogout());
     // this.props.history.push('home');
   }
+  getLocation = () => {
+    console.log('')
+  }
 
   render() {
+
     let locations = this.props.location.map((location) => {
       console.log('location ',location);
       return (
         //this needs to to be turned into the details button, beneith.
-        <div key={location.id}> lat:{location.latitude}, long:{location.longitude}, name:{location.name} </div>
+        
+        <div key={location.id}> 
+        lat:{location.latitude}, 
+        long:{location.longitude}, 
+        name:<Link to="detail">{location.name}
+        </Link></div>
+        
         // {item.distance} strech goal geo sql library
       )
     });
@@ -47,11 +59,28 @@ class Home extends Component {
             id="welcome"
           >
             Welcome, {this.props.user.userName}!
-          </h1>          
-            <pre>
-              {locations}
-            </pre>
-          </div>
+            <div>
+              <input
+                type="number"
+                name="zipcode"
+                placeholder="Zipcode"
+                onClick={this.getLocation}
+              />
+              <select className="detailDropDown">
+                                  <option value="">Type:</option>
+                                  <option value="restroom">Restroom</option>
+                                  <option value="waterFountain">Water Fountain</option>
+                                  <option value="restaurant">Restaurant</option>
+                                  </select>
+              <button>Find</button>
+            </div>
+          </h1>
+          <pre>
+            {locations}
+          </pre>
+        <Link to="/newlocation">Create New icon Button</Link>
+          
+        </div>
         );
       }
 

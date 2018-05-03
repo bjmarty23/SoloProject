@@ -14,7 +14,7 @@ import NewLocation from './components/NewLocation/NewLocation';
 import Detail from './components/Detail/Detail';
 
 import './styles/main.css';
-
+// routes to all the individual pages
 const App = () => (
   <div>
     <Header title="Project Base" />
