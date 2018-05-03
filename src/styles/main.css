@@ -1,9 +1,9 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Alegreya', Alegreya, Geneva, Verdana, Helvetica;
 }
 
 .instructions h1 {
-    font-size: 24px;
+    font-size: 15px;
     font-weight: 700;
 }
 

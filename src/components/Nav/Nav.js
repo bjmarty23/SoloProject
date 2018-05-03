@@ -11,16 +11,23 @@ const Nav = () => (
           </Link>
         </li>
         <li>
-          <Link to="/info">
-            Welcome
+          <Link to="/newlocation">
+          NewLocation
           </Link>
         </li>
         <li>
-          <Link to="/user">
-            nothing
+          <Link to="/detail">
+            Detail
           </Link>
         </li>
-      
+        <li>
+          <Link to="/">
+          <button
+            onClick={this.logout}
+            >Log Out
+          </button>
+          </Link>
+        </li>
       </ul>
     </div>
   </div>

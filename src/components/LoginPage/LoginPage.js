@@ -93,11 +93,11 @@ class LoginPage extends Component {
               name="submit"
               value="Log In"
             />
-             {/* <input// how do i get the continue as guest to work
+             <input// how do i get the continue as guest to work
               type="submit"
               name="submit"
               value="Continue as guest"
-            /> */}
+            />
             <Link to="/home">Continue as guest</Link><br />
             <Link to="/register">Register</Link>
           </div>

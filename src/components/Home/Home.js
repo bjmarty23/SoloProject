@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-// import {GET_LOCATION } from '../../redux/sagas/sagas';
+import { triggerLogout } from '../../redux/actions/loginActions';
+
 
 const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
-  // state,
 });
 
 class Home extends Component {
@@ -25,17 +24,18 @@ class Home extends Component {
       this.props.history.push('/login');
     }
   }
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
+  }
 
   render() {
-    console.log(this.props);
-    // let location = <span>Hello</span>;
     let locations = this.props.location.map((location) => {
       console.log('location ',location);
       return (
-        //this needs to to be turned into the details button, beneth.
+        //this needs to to be turned into the details button, beneith.
         <div key={location.id}> lat:{location.latitude}, long:{location.longitude}, name:{location.name} </div>
         // {item.distance} strech goal geo sql library
-    //     // <div>{item.username} {item.count}</div>
       )
     });
     let content = null;
@@ -43,24 +43,24 @@ class Home extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <pre>
-            {locations}
-          </pre>
-          <button
-            onClick={this.logout}
+          <h1
+            id="welcome"
           >
-            Log Out
-          </button>
+            Welcome, {this.props.user.userName}!
+          </h1>          
+            <pre>
+              {locations}
+            </pre>
+          </div>
+        );
+      }
+
+      return (
+        <div>
+          <Nav />
+          { content }
         </div>
       );
-    }
-
-    return (
-      <div>
-        <Nav />
-        { content }
-      </div>
-    );
   }
 }
 

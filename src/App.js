@@ -10,7 +10,8 @@ import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import Home from './components/Home/Home';
-import User from './components/Update/Update';
+import NewLocation from './components/NewLocation/NewLocation';
+import Detail from './components/Detail/Detail';
 
 import './styles/main.css';
 
@@ -33,8 +34,12 @@ const App = () => (
           component={Home}
         />
         <Route
-          path="/info"
-          component={User}
+          path="/detail"
+          component={Detail}
+        />
+        <Route
+          path="/newlocation"
+          component={NewLocation}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404

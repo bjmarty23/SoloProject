@@ -1,8 +1,12 @@
+/* the nav log out is not working you will need to make sure that 
+your actiona, request, sagas, and reducers are lining up with what
+is in place here on this page. ypure a sloick head you never put any 
+ components that you need in the nav.....  */
+
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Nav from '../../components/Nav/Nav';
-
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
@@ -11,7 +15,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class UserPage extends Component {
+class Detail extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -36,7 +40,7 @@ class UserPage extends Component {
           <h1
             id="welcome"
           >
-            Welcome, {this.props.user.userName}!
+            Welcome, {this.props.user.name}!
           </h1>
           <button
             onClick={this.logout}
@@ -57,4 +61,4 @@ class UserPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps)(Detail);
