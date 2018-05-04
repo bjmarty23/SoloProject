@@ -1,9 +1,8 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
-// import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
+import { Link } from 'react-router-dom';
+
 
 
 const mapStateToProps = state => ({
@@ -11,10 +10,8 @@ const mapStateToProps = state => ({
 });
 
 class Detail extends Component {
-  //logout function
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-  }
+  
+  
 
   //moved logout into nav bar from screen
   render() {
@@ -23,15 +20,26 @@ class Detail extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
+            <Link to="/home">
+        <button onClick={this.back}>Back</button>
+        </Link>
           <h1
             id="welcome"
           >
-            Welcome, {this.props.user.name}!
+            Details and Edit
           </h1>
+          <div>
+            {/* <h3>{this.state.name}</h3> */}
+            </div>
           <button
-            onClick={this.logout}
+            onClick={this.delete}
           >
-            Log Out
+            Delete
+          </button>
+          <button
+            onClick={this.update}
+          >
+            update and save
           </button>
         </div>
       );

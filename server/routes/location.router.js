@@ -20,11 +20,12 @@ router.post('/', (req, res) => {
     console.log('is authenticated?', req.isAuthenticated());
     console.log('user', req.user);
     if (req.isAuthenticated()) { //in order to post an item, user must be signed in
-        let queryText = `INSERT INTO location ("latitude", "longitude", "name", "type", "person_id") VALUES ($1, $2, $3, $4);`;
+        let queryText = `INSERT INTO location ("latitude", "longitude", "name", "type", "notes", "person_id") VALUES ($1, $2, $3, $4, $5, $6);`;
         pool.query(queryText, [req.body.latitude,
                                 req.body.longitude,
                                 req.body.name,
                                 req.body.type,
+                                req.body.notes,
                                 req.user.id
         ]).then((result) => {
             res.sendStatus(201);
