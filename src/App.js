@@ -17,7 +17,7 @@ import './styles/main.css';
 // routes to all the individual pages
 const App = () => (
   <div>
-    <Header title="Project Base" />
+    <Header title="Water you up too?" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/login" />

@@ -28,19 +28,28 @@ class Home extends Component {
   }
   logout = () => {
     this.props.dispatch(triggerLogout());
+    console.log(this.props.state)
     // this.props.history.push('home');
   }
-  getLocation = () => {
-    console.log('')
-  }
+
+  //halp
+  // getTypeLocation = () => {
+  //   console.log('getting location')
+  //   //i want to to take the type and zip code and compare them to current data in db.
+  //   if(location.type === this.state.).then((response) => {
+  //     console.log('response', response);
+  //   }).catch((error) => {
+  //     console.log('error', error)
+  //   })
+  // }
 
   render() {
-
+    // splitting up
     let locations = this.props.location.map((location) => {
       console.log('location ',location);
       return (
-        //this needs to to be turned into the details button, beneith.
         
+        // controls the name button to transfer view to details page
         <div key={location.id}> 
         lat:{location.latitude}, 
         long:{location.longitude}, 
@@ -64,15 +73,15 @@ class Home extends Component {
                 type="number"
                 name="zipcode"
                 placeholder="Zipcode"
-                onClick={this.getLocation}
+                // onClick={this.getLocation}
               />
-              <select className="detailDropDown">
+              <select className="homeDropDown">
                                   <option value="">Type:</option>
                                   <option value="restroom">Restroom</option>
                                   <option value="waterFountain">Water Fountain</option>
                                   <option value="restaurant">Restaurant</option>
                                   </select>
-              <button>Find</button>
+              <button onClick={this.getTypeLocation}>Find</button>
             </div>
           </h1>
           <pre>

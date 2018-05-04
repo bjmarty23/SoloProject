@@ -1,12 +1,11 @@
-//extra pagre till io start the update process
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Nav from '../../components/Nav/Nav';
 
-import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
+// import { USER_ACTIONS } from '../../redux/actions/userActions';
+// import { triggerLogout } from '../../redux/actions/loginActions';
 
 
 const mapStateToProps = state => ({
@@ -23,7 +22,9 @@ class NewLocation extends Component {
   //   if (!this.props.user.isLoading && this.props.user.userName === null) {
   //     this.props.history.push('home');
   //   }
-  // }
+  // } 
+  //halp.. pretty sure i dont need any of this ^^
+
 
   render() {
     let content = null;
@@ -31,12 +32,23 @@ class NewLocation extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
+          <Link to="/home">
+        <button onClick={this.back}>Back</button>
+        </Link>
           <h1
             id="newLocation"
           >
             Add new water source!
           </h1>
-         
+          
+          <div>
+          <select className="newLocationDropDown">
+                                  <option value="">Type:</option>
+                                  <option value="restroom">Restroom</option>
+                                  <option value="waterFountain">Water Fountain</option>
+                                  <option value="restaurant">Restaurant</option>
+                                  </select>
+          </div>
         </div>
       );
     }
