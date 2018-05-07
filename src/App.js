@@ -12,6 +12,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import Home from './components/Home/Home';
 import NewLocation from './components/NewLocation/NewLocation';
 import Detail from './components/Detail/Detail';
+import DetailList from './components/Detail//DetailList';
 
 import './styles/main.css';
 // routes to all the individual pages
@@ -40,6 +41,10 @@ const App = () => (
         <Route
           path="/newlocation"
           component={NewLocation}
+        />
+        <Route
+          path="/detaillist"
+          component={DetailList}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404

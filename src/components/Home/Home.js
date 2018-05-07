@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
 
 
-
 const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
@@ -43,7 +42,6 @@ class Home extends Component {
   //     console.log('error', error)
   //   })
   // }
-
   render() {
     // splitting up
     let locations = this.props.location.map((location) => {
@@ -88,7 +86,7 @@ class Home extends Component {
             </div>
           </h1>
           <pre>
-            {locations}
+          {locations}
           </pre>
         <Link to="/newlocation">Create New icon Button</Link>
           

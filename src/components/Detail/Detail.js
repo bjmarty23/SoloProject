@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
+// import Nav from '../../components/Nav/Nav';
 import { Link } from 'react-router-dom';
+import DetailList from './DetailList'
 
 
 
@@ -14,48 +15,24 @@ class Detail extends Component {
   state={
     location: this.props.location,
     name:this.props.location.name,
-    latitude:this.props.location.latitude,
-    longitude:this.props.location.longitude,
-    notes:this.props.location.notes
   }
   
-
-  //moved logout into nav bar from screen
+//linking home to DetailList page, displaying name/distance of Dom
+ //Link in name of each item
   render() {
     let content = null;
-
     if (this.props.user.userName) {
       content = (
         <div>
-            <Link to="/home">
-        <button onClick={this.back}>Back</button>
-        </Link>
-          <h1
-            id="welcome"
-          >
-            Details and Edit
-          </h1>
-          <div>
-            <h3>{this.props.location.name}</h3>
-            </div>
-          <button
-            onClick={this.delete}
-          >
-            Delete
-          </button>
-          <button
-            onClick={this.update}
-          >
-            update and save
-          </button>
+            <h3><Link to="/DetailList">{this.props.location.name}</Link></h3>
+            <h4>distance goes here</h4>
         </div>
       );
     }
 
     return (
       <div>
-        <Nav />
-        {/* { [this.props.location] } */}
+        { content }
       </div>
     );
   }
