@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   user: state.user,
-  locations: state.location
+  locations: state.locations
 });
 
 class Detail extends Component {
@@ -55,7 +55,7 @@ class Detail extends Component {
     return (
       <div>
         <Nav />
-        { this.props.location }
+        {/* { [this.props.location] } */}
       </div>
     );
   }
