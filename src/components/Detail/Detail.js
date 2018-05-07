@@ -20,9 +20,7 @@ class Detail extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-            <Link to="/home">
-        <button onClick={this.back}>Back</button>
-        </Link>
+         
           <h1
             id="welcome"
           >
