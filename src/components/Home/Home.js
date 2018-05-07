@@ -47,7 +47,9 @@ class Home extends Component {
     // splitting up
     let locations = this.props.location.map((location) => {
       console.log('location ',location);
-      return (
+      return ( <Detail key={location.id}
+                      location={location}/> 
+
         
         // controls the name button to transfer view to details page
         <div key={location.id}> 
@@ -94,6 +96,7 @@ class Home extends Component {
       }
 
       return (
+
         <div>
           <Nav />
           { content }

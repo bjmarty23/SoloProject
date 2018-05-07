@@ -7,10 +7,17 @@ import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   user: state.user,
+  locations: state.location
 });
 
 class Detail extends Component {
-  
+  state={
+    location: this.props.location,
+    name:this.props.location.name,
+    latitude:this.props.location.latitude,
+    longitude:this.props.location.longitude,
+    notes:this.props.location.notes
+  }
   
 
   //moved logout into nav bar from screen
@@ -29,7 +36,7 @@ class Detail extends Component {
             Details and Edit
           </h1>
           <div>
-            {/* <h3>{this.state.name}</h3> */}
+            <h3>{this.props.location.name}</h3>
             </div>
           <button
             onClick={this.delete}
@@ -48,7 +55,7 @@ class Detail extends Component {
     return (
       <div>
         <Nav />
-        { content }
+        { this.props.location }
       </div>
     );
   }
