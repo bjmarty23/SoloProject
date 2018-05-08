@@ -46,10 +46,25 @@ const App = () => (
           path="/detaillist"
           component={DetailList}
         />
-        {/* OTHERWISE (no path!) */}
+         <Route
+          path="/detaillist/:location.id"
+          component={DetailList}
+        />
+        {/* OTHERWISE */}
         <Route render={() => <h1>404
           You're not gonna find what you're looking for here!
         </h1>} />
+
+        {/* DetailList = () => {
+          <div>
+            <Route path="{detaillist/:location.Id}" component={DetailList} />
+            <Route
+              exact
+              path={match.url}
+              render={() => <h3>Please select a topic.</h3>}
+            />
+          </div> */}
+        }
 
       </Switch>
     </Router>

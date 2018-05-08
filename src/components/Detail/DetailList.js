@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -24,11 +26,11 @@ class DetailList extends Component {
     let content = null;
 
     if (this.props.user.userName) {
-    
+      
       content = (
         <div>
-
             <h3>{this.props.location.name}</h3>
+            
           <button
             onClick={this.delete}
           >
@@ -47,6 +49,9 @@ class DetailList extends Component {
       <div>
      
         <Nav />
+        <Link to="/home">
+      <button onClick={this.back}>Back</button>
+      </Link>
         { content }
       </div>
     );
