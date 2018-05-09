@@ -79,3 +79,9 @@ li a:hover {
     text-decoration: underline;
     color: #eee;
 }
+.editModal {
+    background-color: rgb(77, 169, 223);
+    width: 300px;
+    border: 10px;
+    height: 500px;
+}

@@ -59,21 +59,11 @@ class NewLocation extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <Link to="/home">
-        <button onClick={this.back}>Back</button>
-        </Link>
-          <h1
-            id="newLocation"
-          >
-            Add new water source!
-          </h1>
-          
           <div>
           <select className="newLocationDropDown" 
           // value={this.state.type}
           name="type" onChange={this.handleInputChangeFor('type')}>
-              <option value="">Type:</option>
+              <option value="pick here">Type:</option>
               <option value="Restroom">Restroom</option>
               <option value="Fountain">Water Fountain</option>
               <option value="Restaurant">Restaurant</option>
@@ -84,13 +74,14 @@ class NewLocation extends Component {
                 value={this.state.name}
                 onChange={this.handleInputChangeFor('name')}
               /> <br /> 
-            <textarea rows="4" 
-            cols="50" 
+            <textarea rows="2" 
+            cols="40" 
             type="notes"
             name="comment" 
             value={this.state.notes}
+            placeholder="Enter text here.."
             onChange={this.handleInputChangeFor('notes')}
-            form="usrform">Enter text here..</textarea> 
+            form="usrform">dsf</textarea> 
             <br />                    
             Lat:<input
                 type="latitude"
@@ -104,17 +95,25 @@ class NewLocation extends Component {
                 value={this.state.longitude}
                 onChange={this.handleInputChangeFor('longitude')}
               /> 
-              <Link to="/home"><button onClick={this.AddLocation}>Add New</button></Link>
-              <button onClick={this.locate}>location button icon</button>                    
+                                 
           </div>
-        </div>
       );
     }
 
     return (
       <div>
-        <Nav />
+        
+         <Link to="/home">
+        <button onClick={this.back}>Back</button>
+        </Link>
+          <h1
+            id="newLocation"
+          >
+            Add new water source!
+          </h1>
         { content }
+        <Link to="/home"><button onClick={this.AddLocation}>Add New</button></Link>
+              <button onClick={this.locate}>location button icon</button> 
       </div>
     );
   }

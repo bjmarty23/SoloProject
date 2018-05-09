@@ -31,6 +31,7 @@ class Home extends Component {
     console.log(this.props.state)
     // this.props.history.push('home');
   }
+  
 
   //halp
   // getTypeLocation = () => {
