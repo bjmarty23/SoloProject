@@ -3,14 +3,13 @@ import axios from 'axios';
 
 
 function* updateLocation(action) {
-    console.log('in updateLocation')
+    console.log('in updateLocation', action.payload)
     try {
         console.log('ACTION HERE', action)
-        const updateLocation = yield call(axios.put, '/api/location/' + action.payload);
+        yield call(axios.put, `/api/location/${action.payload.location.id}`, action.payload);
         console.log('added item', updateLocation);
         yield put({
             type: 'GET_LOCATION',
-            payload: updateLocation.data
         })
     } catch (error) {
         console.log('UPDATELOCATION ERROR', error)

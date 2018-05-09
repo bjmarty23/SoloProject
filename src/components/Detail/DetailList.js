@@ -41,11 +41,11 @@ function getModalStyle() {
 
 class DetailList extends Component {
   state={
-    location: this.props.location,
-    name:this.props.location.name,
-    latitude:this.props.location.latitude,
-    longitude:this.props.location.longitude,
-    notes:this.props.location.notes,
+    location: this.props.state.getDetailReducer,
+    name:this.props.state.getDetailReducer.name,
+    latitude:this.props.state.getDetailReducer.latitude,
+    longitude:this.props.state.getDetailReducer.longitude,
+    notes:this.props.state.getDetailReducer.notes,
     open: false,
   }
 
@@ -63,10 +63,11 @@ class DetailList extends Component {
   }
   // need to add edit modal then this will work.
   updateLocation=(location) => {
-    console.log('in update', this.props.state.getDetailReducer)
+    this.props.state.getDetailReducer = this.state
+    console.log('in update', this.state)
     this.props.dispatch({
       type: 'UPDATE_LOCATION',
-      payload: this.props.state.getDetailReducer
+      payload: this.state
     })
   }
   
@@ -97,7 +98,7 @@ class DetailList extends Component {
   //moved logout into nav bar from screen
   render() {
     let content = null;
-
+    console.log('NOTES', this.state.notes);
     if (this.props.user.userName) {
       
       content = (
@@ -125,13 +126,13 @@ class DetailList extends Component {
               Edit and Update
             </Typography>
             {/* < NewLocation /> */}
-            <Typography variant="subheading" id="simple-modal-description">
+            {/* <Typography variant="subheading" id="simple-modal-description">
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            </Typography> */}
 
             <div>
               <select className="newLocationDropDown" 
-                // value={this.props.state.getDetailReducer.type}
+                
                 name="type" onChange={this.handleInputChangeFor('type')}>
                   <option value="">Type:</option>
                   <option value="Restroom">Restroom</option>
@@ -141,30 +142,31 @@ class DetailList extends Component {
                 Name:<input
                   type="text"
                   name="name"
-                  value={this.props.state.getDetailReducer.name}
+                  value={this.state.name}
                   onChange={this.handleInputChangeFor('name')}
                   /> <br /> 
-                  <textarea rows="4" 
-                  cols="50" 
+                  <textarea rows="5" 
+                  cols="40" 
                   type="notes"
                   name="comment" 
-                  value={this.props.state.getDetailReducer.notes}
+                  value={this.state.notes}
                   onChange={this.handleInputChangeFor('notes')}
-                  form="usrform">Enter text here..</textarea> 
+                  form="usrform"></textarea> 
                   <br />                    
                 Lat:<input
                   type="latitude"
                   name="latitude"
-                  value={this.props.state.getDetailReducer.latitude}
+                  value={this.state.latitude}
                   onChange={this.handleInputChangeFor('latitude')}
                   /> <br /> 
                 Long:<input
                   type="longitude"
                   name="longitude"
-                  value={this.props.state.getDetailReducer.longitude}
+                  value={this.state.longitude}
                   onChange={this.handleInputChangeFor('longitude')}
                   /> 
-              </div>
+              </div><button onClick={this.updateLocation}><Link to="home">Update</Link></button>
+
           </div>
         </Modal>
          </div>

@@ -4,6 +4,7 @@ import loginSaga from './loginSaga';
 import getDataSaga from './getDataSaga';
 import addNewLocation from './addLocationSaga';
 import deleteSaga from './deleteSaga';
+import updateSaga from './updateSaga';
 
 
 export default function* rootSaga() {
@@ -12,7 +13,8 @@ export default function* rootSaga() {
     loginSaga(),
     getDataSaga(),
     addNewLocation(),
-    deleteSaga()
+    deleteSaga(),
+    updateSaga()
     // watchIncrementAsync()
   ]);
 }

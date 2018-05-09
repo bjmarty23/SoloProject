@@ -76,7 +76,7 @@ router.delete('/:id', (req, res) => {
  * Update an item if it's something the logged in user added
  */
 router.put('/:id', (req, res) => {
-    console.log('Location POST route');
+    console.log('Location PUT route');
     console.log(req.body);
     console.log('is authenticated?', req.isAuthenticated());
     console.log('user', req.user);
