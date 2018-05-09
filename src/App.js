@@ -12,6 +12,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import Home from './components/Home/Home';
 import NewLocation from './components/NewLocation/NewLocation';
 import Detail from './components/Detail/Detail';
+import DetailList from './components/Detail//DetailList';
 
 import './styles/main.css';
 // routes to all the individual pages
@@ -41,10 +42,29 @@ const App = () => (
           path="/newlocation"
           component={NewLocation}
         />
-        {/* OTHERWISE (no path!) */}
+        <Route
+          path="/detaillist"
+          component={DetailList}
+        />
+         <Route
+          path="/detaillist/:location.id"
+          component={DetailList}
+        />
+        {/* OTHERWISE */}
         <Route render={() => <h1>404
           You're not gonna find what you're looking for here!
         </h1>} />
+
+        {/* DetailList = () => {
+          <div>
+            <Route path="{detaillist/:location.Id}" component={DetailList} />
+            <Route
+              exact
+              path={match.url}
+              render={() => <h3>Please select a topic.</h3>}
+            />
+          </div> */}
+        }
 
       </Switch>
     </Router>

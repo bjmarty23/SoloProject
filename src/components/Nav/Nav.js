@@ -44,8 +44,8 @@ class Nav extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/detail">
-                Detail
+              <Link to="/detailList">
+                DetailList
               </Link>
             </li>
             <li>

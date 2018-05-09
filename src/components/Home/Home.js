@@ -4,7 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
-
+import Detail from '../Detail/Detail';
 
 
 const mapStateToProps = state => ({
@@ -42,19 +42,20 @@ class Home extends Component {
   //     console.log('error', error)
   //   })
   // }
-
   render() {
     // splitting up
     let locations = this.props.location.map((location) => {
-      console.log('location ',location);
-      return (
+      // console.log('location ',location);
+      return ( <Detail key={location.id}
+                      location={location}/> 
+
         
         // controls the name button to transfer view to details page
-        <div key={location.id}> 
-        lat:{location.latitude}, 
-        long:{location.longitude}, 
-        name:<Link to="detail">{location.name}
-        </Link></div>
+        // <div key={location.id}> 
+        // lat:{location.latitude}, 
+        // long:{location.longitude}, 
+        // name:<Link to="detail">{location.name}
+        // </Link></div>
         
         // {item.distance} strech goal geo sql library
       )
@@ -85,7 +86,7 @@ class Home extends Component {
             </div>
           </h1>
           <pre>
-            {locations}
+          {locations}
           </pre>
         <Link to="/newlocation">Create New icon Button</Link>
           
@@ -94,6 +95,7 @@ class Home extends Component {
       }
 
       return (
+
         <div>
           <Nav />
           { content }
