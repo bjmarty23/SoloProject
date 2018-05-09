@@ -45,7 +45,7 @@ class Home extends Component {
   render() {
     // splitting up
     let locations = this.props.location.map((location) => {
-      console.log('location ',location);
+      // console.log('location ',location);
       return ( <Detail key={location.id}
                       location={location}/> 
 

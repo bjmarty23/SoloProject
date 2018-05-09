@@ -8,8 +8,11 @@ import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   user: state.user,
-  locations: state.locations
+  locations: state.locations,
+  state
 });
+
+
 
 class DetailList extends Component {
   state={
@@ -19,6 +22,20 @@ class DetailList extends Component {
     longitude:this.props.location.longitude,
     notes:this.props.location.notes
   }
+
+  handleClick = () => {
+    console.log('in handleclick');
+    this.deleteLocation();
+  }
+  
+  deleteLocation = (location) => {
+    console.log('in delete button',this.props.state.getDetailReducer)
+    this.props.dispatch({
+        type: 'REMOVE_LOCATION',
+        payload: this.props.state.getDetailReducer
+    })
+  }
+  
   
 
   //moved logout into nav bar from screen
@@ -29,10 +46,15 @@ class DetailList extends Component {
       
       content = (
         <div>
-            <h3>{this.props.location.name}</h3>
+            <h3>{this.props.state.getDetailReducer.name}</h3>
+            <h5>Notes: {this.props.state.getDetailReducer.notes}<br />
+            Latitude: {this.props.state.getDetailReducer.latitude}<br />
+            Longitude: {this.props.state.getDetailReducer.longitude}</h5>
             
+
+
           <button
-            onClick={this.delete}
+            onClick={this.handleClick}
           >
             Delete
           </button>
@@ -51,6 +73,7 @@ class DetailList extends Component {
         <Nav />
         <Link to="/home">
       <button onClick={this.back}>Back</button>
+      {/* <pre>{JSON.stringify(this.props.state.getDetailReducer)}</pre> */}
       </Link>
         { content }
       </div>
