@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import { Link } from 'react-router-dom';
+import Modal from 'material-ui/Modal';
 
 
 
@@ -35,8 +36,14 @@ class DetailList extends Component {
         payload: this.props.state.getDetailReducer
     })
   }
-  
-  
+  // need to add edit modal then this will work.
+  updateLocation=(location) => {
+    console.log('in update', this.props.state.getDetailReducer)
+    this.props.dispatch({
+      type: 'UPDATE_LOCATION',
+      payload: this.props.state.getDetailReducer
+    })
+  }
 
   //moved logout into nav bar from screen
   render() {
@@ -53,13 +60,13 @@ class DetailList extends Component {
             
 
 
-          <button
+          <Link to="/home"><button
             onClick={this.handleClick}
           >
             Delete
-          </button>
+          </button></Link>
           <button
-            onClick={this.update}
+            onClick={this.updateLocation}
           >
             update and save
           </button>

@@ -23,7 +23,7 @@ class NewLocation extends Component {
     }
   }  
 
-  handleClickAddLocation = (newType) =>{
+  AddLocation = (newType) =>{
     // event.preventDefault();
     console.log('clicked', this.state)
     this.props.dispatch({
@@ -104,7 +104,7 @@ class NewLocation extends Component {
                 value={this.state.longitude}
                 onChange={this.handleInputChangeFor('longitude')}
               /> 
-              <button onClick={this.handleClickAddLocation}>Add New</button>
+              <Link to="/home"><button onClick={this.AddLocation}>Add New</button></Link>
               <button onClick={this.locate}>location button icon</button>                    
           </div>
         </div>
