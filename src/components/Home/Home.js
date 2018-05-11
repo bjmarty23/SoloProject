@@ -5,7 +5,10 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
-
+// const mapApi = 'https://www.google.com/maps/embed/v1/MODE?key=AIzaSyCMlm8yrtdrDyTlHKDpAbn2F_DX4kNOmhs&parameters'
+// const mapSrc =<iframe width="600" height="450" frameborder="0" style="border:0"
+// src="https://www.google.com/maps/embed/v1/MODE?key=AIzaSyCMlm8yrtdrDyTlHKDpAbn2F_DX4kNOmhs&parameters
+// " allowfullscreen></iframe> 
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -89,6 +92,9 @@ class Home extends Component {
           <pre>
           {locations}
           </pre>
+          {/* <iframe width="600" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/MODE?key=AIzaSyCMlm8yrtdrDyTlHKDpAbn2F_DX4kNOmhs&parameters
+" allowfullscreen></iframe> */}
         <Link to="/newlocation">Create New icon Button</Link>
           
         </div>
@@ -100,6 +106,8 @@ class Home extends Component {
         <div>
           <Nav />
           { content }
+          
+
         </div>
       );
   }

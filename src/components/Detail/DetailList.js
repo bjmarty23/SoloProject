@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Modal from 'material-ui/Modal';
 import Typography from 'material-ui/Typography';
 // import NewLocation from '../NewLocation/NewLocation';
+import swal from 'sweetalert';
 
 
 
@@ -179,7 +180,6 @@ class DetailList extends Component {
         <Nav />
         <Link to="/home">
       <button onClick={this.back}>Back</button>
-      {/* <pre>{JSON.stringify(this.props.state.getDetailReducer)}</pre> */}
       </Link>
         { content }
       </div>

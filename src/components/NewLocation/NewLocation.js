@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Nav from '../../components/Nav/Nav';
+// import Nav from '../../components/Nav/Nav';
 
 //gives you access to store 
 const mapStateToProps = state => ({

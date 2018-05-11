@@ -2,9 +2,12 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+
 router.get('/', (req, res) => {
     console.log('location GET route');
-    let queryText = `SELECT * FROM LOCATION;`
+    
+    // hard coded for prime
+    let queryText = `SELECT *, distance(44.9781274, -93.26332149999999, location.latitude, location.longitude) as distance FROM LOCATION;`
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -14,8 +17,8 @@ router.get('/', (req, res) => {
 });
 router.get('/:id', (req, res) => {
     console.log('location GET route'); 
-    let queryText = `SELECT * FROM LOCATION where id = req.params.;`
-    pool.query(queryText)
+    let queryText = `SELECT * FROM location where id = $1;`
+    pool.query(queryText, [req.params])
     .then((result) => {
         res.send(result.rows);
     }).catch((error) => {

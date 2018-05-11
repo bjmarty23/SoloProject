@@ -33,7 +33,7 @@ class Nav extends Component {
       <div className="navbar">
         <div>
           <ul>
-            <li>
+            {/* <li>
               <Link to="/home">
                 Home
               </Link>
@@ -47,7 +47,7 @@ class Nav extends Component {
               <Link to="/detailList">
                 DetailList
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/">
               <button

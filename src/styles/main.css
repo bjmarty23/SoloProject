@@ -1,6 +1,6 @@
 body {
     font-family: 'Alegreya', Alegreya, Geneva, Verdana, Helvetica;
-    background-color: aliceblue;
+    background: aliceblue;
 }
 
 .instructions h1 {
@@ -9,7 +9,7 @@ body {
 }
 
 .instructions {
-    background-color: #00acb0;
+    background-color: #569fff;
     padding: 5px;
     color: #ece7e7;
 }
@@ -49,9 +49,10 @@ input[type="submit"] {
 }
 
 .navbar {
-  background-color: #00acb0;
+  background-color: #569fff;
   width: 100%;
   border-radius: 0px;
+  
 }
 
 ul {
@@ -80,7 +81,7 @@ li a:hover {
     color: #eee;
 }
 .editModal {
-    background-color: rgb(77, 169, 223);
+    background-color: rgb(121, 206, 255);
     width: 300px;
     border: 10px;
     height: 500px;

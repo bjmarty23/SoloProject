@@ -45,7 +45,7 @@ class Detail extends Component {
 
     return (
       <div>
-        
+        {/* <Nav /> */}
         { content }
       </div>
     );
