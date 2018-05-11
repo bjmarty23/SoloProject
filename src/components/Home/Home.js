@@ -61,7 +61,7 @@ class Home extends Component {
         // name:<Link to="detail">{location.name}
         // </Link></div>
         
-        // {item.distance} strech goal geo sql library
+        // {location.distance} strech goal geo sql library
       )
     });
     let content = null;

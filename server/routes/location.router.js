@@ -7,18 +7,34 @@ router.get('/', (req, res) => {
     console.log('location GET route');
     
     // hard coded for prime
-    let queryText = `SELECT *, distance(44.9781274, -93.26332149999999, location.latitude, location.longitude) as distance FROM LOCATION;`
+    let queryText = `SELECT * FROM location;`
     pool.query(queryText).then((result) => {
         res.send(result.rows);
+        console.log(result.rows)
     }).catch((error) => {
         console.log(error);
         res.sendStatus(500);
     });
 });
+
+router.get('/:lat/:lon', (req, res) => {
+    console.log('location GET route');
+    
+    // hard coded for prime
+    let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY distance ;`
+    pool.query(queryText, [req.params.lat, req.params.lon]).then((result) => {
+        res.send(result.rows);
+        console.log(result.rows)
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+});
+
 router.get('/:id', (req, res) => {
     console.log('location GET route'); 
     let queryText = `SELECT * FROM location where id = $1;`
-    pool.query(queryText, [req.params])
+    pool.query(queryText, [req.params.id])
     .then((result) => {
         res.send(result.rows);
     }).catch((error) => {

@@ -38,7 +38,7 @@ class Detail extends Component {
             <h3><Link to='/DetailList'><button value={this.state.location}
              onClick={() => this.getLocationDetails(this.state.location)}>
              {this.props.location.name}</button></Link></h3>
-            <h4>distance goes here</h4>
+            <h4>Miles: {Math.floor(this.props.location.distance)}</h4>
         </div>
       ); 
     }
