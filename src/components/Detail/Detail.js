@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import DetailList from './DetailList'
 
-
+  
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -35,10 +35,11 @@ class Detail extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-            <h3><Link to='/DetailList'><button value={this.state.location}
+            <strong><h2><Link to='/DetailList'><button value={this.state.location}
              onClick={() => this.getLocationDetails(this.state.location)}>
-             {this.props.location.name}</button></Link></h3>
-            <h4>Miles: {Math.floor(this.props.location.distance)}</h4>
+             {this.props.location.name}</button></Link></h2></strong>
+             <h4>{this.props.location.type}</h4>
+            <h4>Miles: {Math.floor((this.props.location.distance) * 100)/100}</h4>
         </div>
       ); 
     }

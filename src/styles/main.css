@@ -86,3 +86,13 @@ li a:hover {
     border: 10px;
     height: 500px;
 }
+
+#map {
+    height: 100%;
+    }
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+

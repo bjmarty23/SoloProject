@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Modal from 'material-ui/Modal';
 import Typography from 'material-ui/Typography';
 // import NewLocation from '../NewLocation/NewLocation';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 
 
 
@@ -106,8 +106,7 @@ class DetailList extends Component {
         <div>
           <h3>{this.props.state.getDetailReducer.name}</h3>
           <h5>Notes: {this.props.state.getDetailReducer.notes}<br />
-          Latitude: {this.props.state.getDetailReducer.latitude}<br />
-          Longitude: {this.props.state.getDetailReducer.longitude}</h5>
+          Distance: {Math.floor((this.props.state.getDetailReducer.distance) * 100)/100}</h5>
             
           <Link to="/home"><button
             onClick={this.handleClick}>
@@ -167,6 +166,7 @@ class DetailList extends Component {
                   onChange={this.handleInputChangeFor('longitude')}
                   /> 
               </div><button onClick={this.updateLocation}><Link to="home">Update</Link></button>
+              <button onClick={this.handleClose}>Cancel</button>
 
           </div>
         </Modal>

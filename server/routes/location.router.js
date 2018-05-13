@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     console.log('location GET route');
     
-    // hard coded for prime
+    
     let queryText = `SELECT * FROM location;`
     pool.query(queryText).then((result) => {
         res.send(result.rows);
@@ -35,6 +35,17 @@ router.get('/:id', (req, res) => {
     console.log('location GET route'); 
     let queryText = `SELECT * FROM location where id = $1;`
     pool.query(queryText, [req.params.id])
+    .then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+});
+router.get('/:type', (req, res) => {
+    console.log('location GET route'); 
+    let queryText = `SELECT * FROM location WHERE type = $1;`
+    pool.query(queryText, [req.params.type])
     .then((result) => {
         res.send(result.rows);
     }).catch((error) => {

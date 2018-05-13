@@ -33,18 +33,17 @@ class Home extends Component {
     // this.props.history.push('home');
   }
   // find button clicked 
-  // getTypeLocation =()=> {
-  //   console.log('get type',this.props.location)
-  //   this.props.dispatch({ type: 'GET_TYPE',
-  //                         payload: this.props.location.type});
-  // }
+  getTypeLocation =()=> {
+    console.log('get type',this.props.location)
+    this.props.dispatch({ type: 'GET_TYPE',
+                          payload: this.props.location});
+  }
 
   //halp
   // getTypeLocation = () => {
   //   console.log('getting location')
   //   //i want to to take the type and zip code and compare them to current data in db.
-  //   if(location.type === this.state)
-  //   .then((response) => {
+  //   if(location.type === this.state.).then((response) => {
   //     console.log('response', response);
   //   }).catch((error) => {
   //     console.log('error', error)
@@ -52,13 +51,22 @@ class Home extends Component {
   // }
   render() {
     // splitting up
-    let locations = this.props.location.map((location) => {
-      console.log('location ',location);
-      return ( <Detail key={location.id}
-                      location={location}/> 
+    // let locations = this.props.location.map((location) => {
+    //   console.log('location ',location);
+    //   return ( <Detail key={location.id}
+    //                   location={location}/> 
 
-      )
-    });
+        
+        // controls the name button to transfer view to details page
+        // <div key={location.id}> 
+        // lat:{location.latitude}, 
+        // long:{location.longitude}, 
+        // name:<Link to="detail">{location.name}
+        // </Link></div>
+        
+        // {item.distance} strech goal geo sql library
+    //   )
+    // });
     let content = null;
     
     if (this.props.user.userName) {
@@ -109,4 +117,3 @@ class Home extends Component {
 
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(Home);
-

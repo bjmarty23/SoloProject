@@ -4,7 +4,8 @@ import login from './loginReducer';
 import getDataReducer from './getDataReducer';
 import addNewReducer from './addNewReducer';
 import getDetailReducer from './getDetailReducer';
-// import deleteReducer from './deleteReducer';
+import typeReducer from './typeReducer';
+
 
 //combines all the reducers as one package
 const store = combineReducers({
@@ -13,7 +14,7 @@ const store = combineReducers({
   getDataReducer,
   addNewReducer,
   getDetailReducer,
-  // deleteReducer,
+  typeReducer,
 
 });
 
