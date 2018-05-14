@@ -76,7 +76,7 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div>
+          <div class="login">
             <label htmlFor="password">
               Password:
               <input
