@@ -6,9 +6,11 @@ import Modal from 'material-ui/Modal';
 import Typography from 'material-ui/Typography';
 // import NewLocation from '../NewLocation/NewLocation';
 // import swal from 'sweetalert';
-
-
-
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CreateIcon from '@material-ui/icons/Create';
+import ReplyIcon from '@material-ui/icons/Reply'
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -99,24 +101,25 @@ class DetailList extends Component {
   //moved logout into nav bar from screen
   render() {
     let content = null;
-    console.log('NOTES', this.state.notes);
     if (this.props.user.userName) {
       
       content = (
-        <div>
+       
+          <div class="detaillist">
           <h3>{this.props.state.getDetailReducer.name}</h3>
           <h5>Notes: {this.props.state.getDetailReducer.notes}<br />
           Distance: {Math.floor((this.props.state.getDetailReducer.distance) * 100)/100}</h5>
             
-          <Link to="/home"><button
-            onClick={this.handleClick}>
-            Delete</button>
+          <Link to="/home"><Button variant="fab" color="primary" aria-label="delete" onClick={this.handleClick}>
+        <DeleteIcon />
+            </Button>   
             </Link>
-            <button
-            onClick={this.handleOpen}>edit
-            </button>
+               <Button variant="fab" color="primary" aria-label="create" onClick={this.handleOpen}>
+               <CreateIcon />
+            </Button>
 
-          <Modal
+          <Modal 
+            class="modal"
             aria-labelledby="Edit"
             aria-describedby="Update and edit this location with correct information"
             open={this.state.open}
@@ -165,9 +168,13 @@ class DetailList extends Component {
                   value={this.state.longitude}
                   onChange={this.handleInputChangeFor('longitude')}
                   /> 
-              </div><button onClick={this.updateLocation}><Link to="home">Update</Link></button>
-              <button onClick={this.handleClose}>Cancel</button>
-
+              </div><Link to="home"><Button
+               variant="fab" color="primary" aria-label="add" onClick={this.updateLocation}>
+                <AddIcon />
+                </Button></Link>
+              <Button variant="fab" color="primary" aria-label="Keyboard_Arrow_Left"  onClick={this.handleClose}>
+              <ReplyIcon />
+              </Button>
           </div>
         </Modal>
          </div>
@@ -178,9 +185,12 @@ class DetailList extends Component {
       <div>
      
         <Nav />
-        <Link to="/home">
-      <button onClick={this.back}>Back</button>
-      </Link>
+        <div class="back">
+            <Link to="/home">
+            <Button  variant="fab" color="primary" aria-label="Reply" onClick={this.back}>
+            <ReplyIcon /></Button>
+            </Link>
+        </div>
         { content }
       </div>
     );

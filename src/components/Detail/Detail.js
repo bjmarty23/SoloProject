@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 // import Nav from '../../components/Nav/Nav';
 import { Link } from 'react-router-dom';
 // import DetailList from './DetailList'
+import Button from 'material-ui/Button';
 
   
 
@@ -35,11 +36,11 @@ class Detail extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-            <strong><h2><Link to='/DetailList'><button value={this.state.location}
-             onClick={() => this.getLocationDetails(this.state.location)}>
-             {this.props.location.name}</button></Link></h2></strong>
-             <h4>{this.props.location.type}</h4>
-            <h4>Miles: {Math.floor((this.props.location.distance) * 100)/100}</h4>
+            
+             {this.props.location.name}<br/>
+             {this.props.location.type}<br/>
+            Miles: {Math.floor((this.props.location.distance) * 100)/100}<br/><Button variant="raised" color="primary"  value={this.state.location}
+             onClick={() => this.getLocationDetails(this.state.location)}><Link to='/DetailList'>Click for details</Link></Button>
         </div>
       ); 
     }

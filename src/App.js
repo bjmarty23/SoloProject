@@ -5,7 +5,6 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
@@ -13,10 +12,24 @@ import Home from './components/Home/Home';
 import NewLocation from './components/NewLocation/NewLocation';
 import Detail from './components/Detail/Detail';
 import DetailList from './components/Detail//DetailList';
-
+//styling imports
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { createMuiTheme } from 'material-ui/styles';
+import blue900 from 'material-ui/colors/brown';
+import blue from  'material-ui/colors/blue';
 import './styles/main.css';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: blue, 
+    secondary: blue900
+
+  }
+});
+
 // routes to all the individual pages
 const App = () => (
+  <MuiThemeProvider theme={theme}>
   <div>
     <Header title="Water you up to?" />
     <Router>
@@ -69,6 +82,7 @@ const App = () => (
       </Switch>
     </Router>
   </div>
+  </MuiThemeProvider>
 );
 
 export default App;

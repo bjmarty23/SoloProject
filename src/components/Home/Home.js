@@ -6,6 +6,15 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
 // import Map from '../../components/Map/Map'
+// import Button from 'material-ui/Button';
+// import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+
+
+
+
+
 
 
 const mapStateToProps = state => ({
@@ -76,7 +85,7 @@ class Home extends Component {
                 // onClick={this.getLocation}
               />
               <select className="homeDropDown">
-                                  <option value="">Type:</option>
+                                  <option value="">Type: Select</option> 
                                   <option value="restroom">Restroom</option>
                                   <option value="waterFountain">Water Fountain</option>
                                   <option value="restaurant">Restaurant</option>
@@ -84,10 +93,12 @@ class Home extends Component {
               <button onClick={this.getTypeLocation}>Find</button>
             </div>
           </h1>
-          <pre>
+          <pre class="locations">
           {locations}
           </pre>
-        <Link to="/newlocation">Create New icon Button</Link>
+        <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" >
+        <AddIcon />
+      </Button></Link>
           <div>
                     
           </div>
@@ -109,4 +120,3 @@ class Home extends Component {
 
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(Home);
-

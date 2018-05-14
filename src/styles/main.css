@@ -49,9 +49,10 @@ input[type="submit"] {
 }
 
 .navbar {
-  background-color: #569fff;
+  background-color:aliceblue;
   width: 100%;
   border-radius: 0px;
+  font-size: 15px;
   
 }
 
@@ -95,4 +96,38 @@ li a:hover {
     margin: 0;
     padding: 0;
     }
+.lead {
+    text-align: center;
+    font-size: large;
+    height: 100%
+}
+#welcome {
+    font-size: 30px;
+    text-align: center;
+    border-top: 0px;
+}
+#navbar {
+    font-size: 20px;
+    text-align: end;
+}
+.homedropdown {
+    font-size: 15px;
+    background-color: white
+}
+.locations {
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+.detaillist {
+    text-align: center;
+    font-size:  25px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
+    margin-right: 10px;
 
+}
+.modal {
+    text-align: center;
+    margin-top: 20px;
+}

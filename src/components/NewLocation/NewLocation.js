@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Button from 'material-ui/Button';
+// import add_button from 'material-ui/icon';
 // import Nav from '../../components/Nav/Nav';
 
 //gives you access to store 
@@ -104,7 +106,7 @@ class NewLocation extends Component {
       <div>
         
          <Link to="/home">
-        <button onClick={this.back}>Back</button>
+        <Button size="small" variant="raised" color="primary" type="submit" onClick={this.back}>Back</Button>
         </Link>
           <h1
             id="newLocation"
@@ -112,7 +114,7 @@ class NewLocation extends Component {
             Add new water source!
           </h1>
         { content }
-        <Link to="/home"><button onClick={this.AddLocation}>Add New</button></Link>
+        <Link to="/home"><Button size="small" variant="raised" color="primary" type="submit" onClick={this.AddLocation}>Add New</Button></Link>
               <button onClick={this.locate}>location button icon</button> 
       </div>
     );
