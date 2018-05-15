@@ -2,9 +2,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Button from 'material-ui/Button';
-// import add_button from 'material-ui/icon';
-// import Nav from '../../components/Nav/Nav';
+import { triggerLogout } from '../../redux/actions/loginActions';
+// import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import ReplyIcon from '@material-ui/icons/Reply'
+import LocationSearchingIcon from '@material-ui/icons/LocationSearching'
+
 
 //gives you access to store 
 const mapStateToProps = state => ({
@@ -24,7 +28,10 @@ class NewLocation extends Component {
       notes: '',
     }
   }  
-
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
+  }
   AddLocation = (newType) =>{
     // event.preventDefault();
     console.log('clicked', this.state)
@@ -61,7 +68,7 @@ class NewLocation extends Component {
 
     if (this.props.user.userName) {
       content = (
-          <div>
+          <div class="newlocation">
           <select className="newLocationDropDown" 
           // value={this.state.type}
           name="type" onChange={this.handleInputChangeFor('type')}>
@@ -106,7 +113,7 @@ class NewLocation extends Component {
       <div>
         
          <Link to="/home">
-        <Button size="small" variant="raised" color="primary" type="submit" onClick={this.back}>Back</Button>
+        <Button size="small" variant="fab" color="primary" aria-label="add"  onClick={this.back}><ReplyIcon /></Button>
         </Link>
           <h1
             id="newLocation"
@@ -114,8 +121,8 @@ class NewLocation extends Component {
             Add new water source!
           </h1>
         { content }
-        <Link to="/home"><Button size="small" variant="raised" color="primary" type="submit" onClick={this.AddLocation}>Add New</Button></Link>
-              <button onClick={this.locate}>location button icon</button> 
+        <Link to="/home"><Button variant="fab" color="primary" aria-label="add" size="small"  onClick={this.AddLocation}><AddIcon /></Button></Link>
+              <Button variant="fab" color="primary" aria-label="add" size="small" onClick={this.locate}><LocationSearchingIcon /></Button> 
       </div>
     );
   }

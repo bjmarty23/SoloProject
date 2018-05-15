@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
+// import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
@@ -25,6 +25,10 @@ const mapStateToProps = state => ({
 class Home extends Component {
   state = {
     location: '',
+  }
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
   }
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
@@ -109,7 +113,12 @@ class Home extends Component {
       return (
 
         <div>
-          <Nav />
+          <Link to="/">
+            <button
+              onClick={this.logout}
+              >Log Out
+            </button>
+          </Link>
           { content }
           {/* <Map isMarkerShown /> */}
         </div>

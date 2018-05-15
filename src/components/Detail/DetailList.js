@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
+// import Nav from '../../components/Nav/Nav';
+import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
 import Modal from 'material-ui/Modal';
 import Typography from 'material-ui/Typography';
@@ -97,6 +98,10 @@ class DetailList extends Component {
       [propertyName]: event.target.value,
     });
   }
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
+  }
 
   //moved logout into nav bar from screen
   render() {
@@ -184,13 +189,19 @@ class DetailList extends Component {
     return (
       <div>
      
-        <Nav />
+     <Link to="/">
+        <button
+          onClick={this.logout}
+          >Log Out
+        </button>
+     </Link>  
         <div class="back">
             <Link to="/home">
             <Button  variant="fab" color="primary" aria-label="Reply" onClick={this.back}>
             <ReplyIcon /></Button>
             </Link>
         </div>
+
         { content }
       </div>
     );

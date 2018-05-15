@@ -15,7 +15,7 @@ import DetailList from './components/Detail//DetailList';
 //styling imports
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { createMuiTheme } from 'material-ui/styles';
-import blue900 from 'material-ui/colors/brown';
+import blue900 from 'material-ui/colors/blue';
 import blue from  'material-ui/colors/blue';
 import './styles/main.css';
 

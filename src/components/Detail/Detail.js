@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Nav from '../../components/Nav/Nav';
 import { Link } from 'react-router-dom';
-// import DetailList from './DetailList'
 import Button from 'material-ui/Button';
 
   
@@ -25,6 +23,7 @@ class Detail extends Component {
         payload: this.state.location
       })
     }
+   
   
 //linking home to DetailList page, displaying name/distance of Dom
  //Link in name of each item
@@ -47,7 +46,6 @@ class Detail extends Component {
 
     return (
       <div>
-        {/* <Nav /> */}
         { content }
       </div>
     );
