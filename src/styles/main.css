@@ -21,12 +21,13 @@ body {
 }
 
 form {
-    background-color: aliceblue;
-    width: 40%;
+    background-color:aliceblue;
+    width: 30%;
     height: 250px;
-    margin: 30% auto;
-    padding: 25px;
+    margin: 20% auto;
+    padding: 30px;
     border-radius: 2px;
+    text-align: center;
 }
 
 input {
@@ -152,7 +153,5 @@ li a:hover {
     background-color: aliceblue;
 }
 .login {
-    background-color: aliceblue;
     margin: 30 px;
-    
 }
