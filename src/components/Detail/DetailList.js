@@ -12,6 +12,9 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CreateIcon from '@material-ui/icons/Create';
 import ReplyIcon from '@material-ui/icons/Reply'
+import Card, { CardContent, } from 'material-ui/Card';
+import { Grid } from 'material-ui';
+
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -190,7 +193,7 @@ class DetailList extends Component {
       <div>
      
      <Link to="/">
-        <button
+        <button class="logout"
           onClick={this.logout}
           >Log Out
         </button>
@@ -201,8 +204,13 @@ class DetailList extends Component {
             <ReplyIcon /></Button>
             </Link>
         </div>
-
+        <Grid item>
+        <Card  class="card" style={{margin: "30px"}} >
+        <CardContent>
         { content }
+        </CardContent>
+        </Card>
+        </Grid>
       </div>
     );
   }

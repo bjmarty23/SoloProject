@@ -113,10 +113,10 @@ class NewLocation extends Component {
       <div>
         
          <Link to="/home">
-        <Button size="small" variant="fab" color="primary" aria-label="add"  onClick={this.back}><ReplyIcon /></Button>
+        <Button size="mini" variant="fab" color="primary" aria-label="add"  onClick={this.back}><ReplyIcon /></Button>
         </Link>
           <h1
-            id="newLocation"
+            id="newLocation" 
           >
             Add new water source!
           </h1>

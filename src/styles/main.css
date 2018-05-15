@@ -5,7 +5,6 @@ body {
     height: 100%;
     /* background-repeat: no-repeat, repeat; */
     background-color: aliceblue;
-    
 
 }
 
@@ -22,10 +21,10 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
-    width: 30%;
+    background-color: aliceblue;
+    width: 40%;
     height: 250px;
-    margin: 20px auto;
+    margin: 30% auto;
     padding: 25px;
     border-radius: 2px;
 }
@@ -144,4 +143,16 @@ li a:hover {
 }
 .newlocation {
     text-align: center;
+}
+.logout {
+    font-size: 15px;
+}
+
+.card {
+    background-color: aliceblue;
+}
+.login {
+    background-color: aliceblue;
+    margin: 30 px;
+    
 }

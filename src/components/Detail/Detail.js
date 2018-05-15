@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Button from 'material-ui/Button';
+// import Button from 'material-ui/Button';
+import Card, { CardContent, } from 'material-ui/Card';
+import { Grid, Button } from 'material-ui';
+
 
   
 
@@ -46,7 +49,13 @@ class Detail extends Component {
 
     return (
       <div>
+        <Grid item>
+        <Card  class="card" style={{margin: "20px"}} >
+        <CardContent>
         { content }
+        </CardContent>
+        </Card>
+        </Grid>
       </div>
     );
   }

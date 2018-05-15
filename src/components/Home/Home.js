@@ -114,7 +114,7 @@ class Home extends Component {
 
         <div>
           <Link to="/">
-            <button
+            <button class="logout"
               onClick={this.logout}
               >Log Out
             </button>

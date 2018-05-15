@@ -61,7 +61,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div class="login">
         { this.renderAlert() }
         <form onSubmit={this.login}>
           <h1>Login</h1>
@@ -76,7 +76,7 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div class="login">
+          <div>
             <label htmlFor="password">
               Password:
               <input
@@ -87,11 +87,11 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div>
+          <div class="login">
             <input
               type="submit"
               name="submit"
-              value="Log In"
+              value="Login"
             />
             {/* //halp
              <input// how do i get the continue as guest to work
