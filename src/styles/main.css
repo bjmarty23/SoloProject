@@ -1,11 +1,18 @@
+.opacity{
+    position: absolute;
+    opacity: 0.2; 
+    filter: alpha(opacity=20);
+}
+
 body {
     font-family: 'Alegreya', Alegreya, Geneva, Verdana, Helvetica;
-    background-image: url("https://image.freepik.com/free-photo/blue-swimming-pool-rippled-water-detail_1258-710.jpg");
+    /* background: url("https://image.freepik.com/free-photo/blue-swimming-pool-rippled-water-detail_1258-710.jpg"); */
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0ErIK7IMohOC9cGy7adGqparMTxHiFVhe8qU9TzGPK6jVIo0v");
+    /* background-repeat: no-repeat; */
+    /* background-position: center bottom;  */
     color: darkblue;
     height: 100%;
-    /* background-repeat: no-repeat, repeat; */
     background-color: aliceblue;
-
 }
 
 .instructions h1 {
@@ -25,6 +32,7 @@ form {
     width: 40%;
     height: 250px;
     margin: 20% auto;
+    margin-top: 30%;
     padding: 30px;
     border-radius: 2px;
     text-align: center;
