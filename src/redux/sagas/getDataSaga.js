@@ -12,12 +12,12 @@ const getUserLocation = () => new Promise((resolve, reject) => {
 
 
 
-function * getType(action){
+function* getType(action){
     console.log('in getType saga')
     try{ //getting type for search
         console.log (action.payload)
-        console.log()
-        // const type = this.props.state.location.type
+        // console.log(type)
+        // const type = this.props.location.type
         const getType = yield call(axios.get, `/api/location/${action.payload}`);
         console.log('type', getType)
         yield put({
@@ -35,7 +35,7 @@ function* getData(action){
     try {// this is your location
         // const latitude = 44.9780926;  // used for testing
         // const longitude = -93.2632734; // used for testing
-        // this is grabbig current location of AMEN
+        // this is grabbig current location of user
         const location = yield call(getUserLocation); // used for production
         const {latitude, longitude} = location.coords; // used for production
         console.log('YOU ARE HERE', latitude, longitude);
@@ -52,7 +52,7 @@ function* getData(action){
 }
 
 function* getDataSaga() {
-    // When GET_LOCATION, GET_DETAILS is dispached, call the function
+    // When GET_LOCATION, GET_DETAILS, GET_TYPE is dispached, call the function
     yield takeEvery('GET_LOCATION', getData);
     yield takeEvery('GET_TYPE', getType);
     // yield takeEvery('GET_DETAILS', getDetails);

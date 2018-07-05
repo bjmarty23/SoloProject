@@ -68,7 +68,7 @@ class NewLocation extends Component {
 
     if (this.props.user.userName) {
       content = (
-          <div class="newlocation">
+          <div className="newlocation">
           <select className="newLocationDropDown" 
           // value={this.state.type}
           name="type" onChange={this.handleInputChangeFor('type')}>

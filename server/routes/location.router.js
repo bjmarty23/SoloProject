@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
     });
 });
 router.get('/:type', (req, res) => {
-    console.log('location GET route'); 
+    console.log('location GET type route'); 
     let queryText = `SELECT * FROM location WHERE type = $1;`
     pool.query(queryText, [req.params.type])
     .then((result) => {

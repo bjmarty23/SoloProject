@@ -61,7 +61,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div class="login">
+      <div className="login">
         { this.renderAlert() }
         <form onSubmit={this.login}>
           <h1>Login</h1>
@@ -87,7 +87,7 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div class="login">
+          <div className="login">
             <input
               type="submit"
               name="submit"

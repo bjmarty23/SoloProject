@@ -50,7 +50,7 @@ class Detail extends Component {
     return (
       <div>
         <Grid item>
-        <Card  class="card" style={{margin: "20px"}} >
+        <Card  className="card" style={{margin: "20px"}} >
         <CardContent>
         { content }
         </CardContent>

@@ -1,119 +1,101 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
-import { Link } from 'react-router-dom';
-import Detail from '../Detail/Detail';
-// import Map from '../../components/Map/Map'
+import PropTypes from 'prop-types';
+//style
+import { withStyles } from '@material-ui/core/styles';
+// import { Paper, Typography, Card, Button, TextField } from '@material-ui/core';
+import { MenuItem, InputLabel, Select, FormControl, Divider, } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
+  state,
 });
 
-class Home extends Component {
-  state = {
-    location: '',
-  }
-  componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    this.props.dispatch({ type:'GET_LOCATION'});
-  }
+const styles = theme => ({
+  
+  // formControl: {
+  //     margin: theme.spacing.unit,
+  //     Width: 200,
+  // },
+});
 
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('/login');
+class HomeItem extends Component {
+  constructor(){
+    super();
+    this.state={
+    location: '',
+    type: '',
     }
   }
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    console.log(this.props.state)
-    // this.props.history.push('home');
-  }
-  // find button clicked 
+  
+
+  //find button clicked ****** SPECIFY THE TYPE CLICKED query for type in db 
   getTypeLocation =()=> {
-    console.log('get type',this.props.location)
+    // console.log('get type',this.props.location)Current coding
+    console.log('get type',this.props.state.getDataReducer.type)
     this.props.dispatch({ type: 'GET_TYPE',
-                          payload: this.props.location});
+                          payload: this.props.location.type})
+                          console.log(this.props.location.type);
   }
 
-  //halp
-  // getTypeLocation = () => {
-  //   console.log('getting location')
-  //   //i want to to take the type and zip code and compare them to current data in db.
-  //   if(location.type === this.state.).then((response) => {
-  //     console.log('response', response);
-  //   }).catch((error) => {
-  //     console.log('error', error)
-  //   })
-  // }
-  render() {
-    // splitting up
-    // let locations = this.props.location.map((location) => {
-    //   console.log('location ',location);
-    //   return ( <Detail key={location.id}
-    //                   location={location}/> 
+  handleChangeFor = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-        
-        // controls the name button to transfer view to details page
-        // <div key={location.id}> 
-        // lat:{location.latitude}, 
-        // long:{location.longitude}, 
-        // name:<Link to="detail">{location.name}
-        // </Link></div>
-        
-        // {item.distance} strech goal geo sql library
-    //   )
-    // });
-    let content = null;
-    
-    if (this.props.user.userName) {
-      content = (
-        <div>
-          <h1
-            id="welcome"
-          >
-            Welcome, {this.props.user.userName}!
-            <div>
-              <input
-                type="number"
-                name="zipcode"
-                placeholder="Zipcode"
-                // onClick={this.getLocation}
-              />
-              <select className="homeDropDown">
-                                  <option value="">Type:</option>
-                                  <option value="restroom">Restroom</option>
-                                  <option value="waterFountain">Water Fountain</option>
-                                  <option value="restaurant">Restaurant</option>
-                                  </select>
-              <button onClick={this.getTypeLocation}>Find</button>
-            </div>
-          </h1>
-          <pre>
-          {locations}
-          </pre>
-        <Link to="/newlocation">Create New icon Button</Link>
-          <div>
-                    
-          </div>
-        </div>
-        );
-      }
+    this.setState({
+      [name]: value
+    }); 
+   
+}
+// submit = () => {
+//     this.props.dispatch({
+//         type: 'GET_PERSON_DATA_COUNTY', 
+//         payload: this.state
+//     })
+// }
 
-      return (
+  componentDidMount () {
+    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    console.log(this.props.state.getCountyReducer)
+}
+render(){
+      const { classes } = this.props;
 
-        <div>
-          <Nav />
-          { content }
-          {/* <Map isMarkerShown /> */}
-        </div>
-        
-      );
-  }
+  return(
+    <div>
+      <div>
+        <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="Type">Type</InputLabel>
+            <Select
+                value={this.state.type}
+                onChange={this.handleChangeFor}
+                className={classes.textField}
+                inputProps={{
+                    name: 'type',
+                    id: 'type',
+                }}>
+                <MenuItem  value="restroom">Restroom</MenuItem>
+                <Divider />
+                <MenuItem  value="waterFountain">Water Fountain</MenuItem>
+                <Divider />
+                <MenuItem value="restaurant">Restaurant</MenuItem>
+            </Select>
+        </FormControl>
+      </div>
+      {/* <select className="homeDropDown"> */}
+                          
+      <button onClick={this.getTypeLocation}>Find</button>
+    </div>
+  )
 }
 
+}
+HomeItem.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(withStyles(styles)(HomeItem));

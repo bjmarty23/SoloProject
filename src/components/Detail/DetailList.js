@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 // import Nav from '../../components/Nav/Nav';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+//style
+import { withStyles } from '@material-ui/core/styles';
+// import { Paper, Typography, Card, Button, TextField } from '@material-ui/core';
+import { MenuItem, InputLabel, Select, FormControl, Divider, } from '@material-ui/core';
+
 import Modal from 'material-ui/Modal';
 import Typography from 'material-ui/Typography';
 // import NewLocation from '../NewLocation/NewLocation';
@@ -46,6 +52,14 @@ function getModalStyle() {
 //   },
 // });
 
+const styles = theme => ({
+  
+  // formControl: {
+  //     margin: theme.spacing.unit,
+  //     Width: 200,
+  // },
+});
+
 class DetailList extends Component {
   state={
     location: this.props.state.getDetailReducer,
@@ -80,6 +94,7 @@ class DetailList extends Component {
   
   handleOpen = () => {
     this.setState({ open: true });
+    console.log('type',this.state.type)
   };
 
   handleClose = () => {
@@ -108,12 +123,14 @@ class DetailList extends Component {
 
   //moved logout into nav bar from screen
   render() {
+    const { classes } = this.props;
+
     let content = null;
     if (this.props.user.userName) {
       
       content = (
        
-          <div class="detaillist">
+          <div className="detaillist">
           <h3>{this.props.state.getDetailReducer.name}</h3>
           <h5>Notes: {this.props.state.getDetailReducer.notes}<br />
           Distance: {Math.floor((this.props.state.getDetailReducer.distance) * 100)/100}</h5>
@@ -127,7 +144,7 @@ class DetailList extends Component {
             </Button>
 
           <Modal 
-            class="modal"
+            className="modal"
             aria-labelledby="Edit"
             aria-describedby="Update and edit this location with correct information"
             open={this.state.open}
@@ -136,20 +153,25 @@ class DetailList extends Component {
             <Typography variant="title" id="modal-title">
               Edit and Update
             </Typography>
-            {/* < NewLocation /> */}
-            {/* <Typography variant="subheading" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography> */}
-
             <div>
-              <select className="newLocationDropDown" 
-                
-                name="type" onChange={this.handleInputChangeFor('type')}>
-                  <option value="">Type:</option>
-                  <option value="Restroom">Restroom</option>
-                  <option value="Fountain">Water Fountain</option>
-                  <option value="Restaurant">Restaurant</option>
-                  </select><br />
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="Type">Type</InputLabel>
+                <Select
+                  value={this.state.type}
+                  onChange={this.handleInputChangeFor('type')}
+                  className={classes.textField}
+                  inputProps={{
+                      name: 'type',
+                      id: 'type',
+                  }}>
+                  <MenuItem  value="restroom">Restroom</MenuItem>
+                  <Divider />
+                  <MenuItem  value="waterFountain">Water Fountain</MenuItem>
+                  <Divider />
+                  <MenuItem  value="restaurant">Restaurant</MenuItem>
+                </Select>
+              </FormControl>
+                  <br />
                 Name:<input
                   type="text"
                   name="name"
@@ -193,19 +215,19 @@ class DetailList extends Component {
       <div>
      
      <Link to="/">
-        <button class="logout"
+        <button className="logout"
           onClick={this.logout}
           >Log Out
         </button>
      </Link>  
-        <div class="back">
+        <div className="back">
             <Link to="/home">
             <Button  variant="fab" color="primary" aria-label="Reply" onClick={this.back}>
             <ReplyIcon /></Button>
             </Link>
         </div>
         <Grid item>
-        <Card  class="card" style={{margin: "30px"}} >
+        <Card  className="card" style={{margin: "30px"}} >
         <CardContent>
         { content }
         </CardContent>
@@ -215,6 +237,9 @@ class DetailList extends Component {
     );
   }
 }
+DetailList.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(DetailList);
+export default connect(mapStateToProps)(withStyles(styles)(DetailList));

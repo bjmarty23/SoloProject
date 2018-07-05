@@ -8,7 +8,7 @@ body {
     font-family: 'Alegreya', Alegreya, Geneva, Verdana, Helvetica;
     /* background: url("https://image.freepik.com/free-photo/blue-swimming-pool-rippled-water-detail_1258-710.jpg"); */
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0ErIK7IMohOC9cGy7adGqparMTxHiFVhe8qU9TzGPK6jVIo0v");
-    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
     /* background-position: center bottom;  */
     color: darkblue;
     height: 100%;
