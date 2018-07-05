@@ -67,6 +67,7 @@ class DetailList extends Component {
     latitude:this.props.state.getDetailReducer.latitude,
     longitude:this.props.state.getDetailReducer.longitude,
     notes:this.props.state.getDetailReducer.notes,
+    type:this.props.state.getDetailReducer.type,
     open: false,
   }
 
@@ -94,7 +95,8 @@ class DetailList extends Component {
   
   handleOpen = () => {
     this.setState({ open: true });
-    console.log('type',this.state.type)
+    console.log('type',this.state.type, this.props.state.getDetailReducer.type)
+    console.log('name', this.state.name)
   };
 
   handleClose = () => {
