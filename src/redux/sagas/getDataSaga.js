@@ -16,10 +16,11 @@ function* getType(action){
     console.log('in getType saga')
     try{ //getting type for search
         console.log (action.payload)
+        // const type = action.payload;
         // console.log(type)
         // const type = this.props.location.type
-        const getType = yield call(axios.get, `/api/location/${action.payload}`);
-        console.log('type', getType)
+        const getType = yield call(axios.get, `/api/location/?type=${action.payload}`);
+        console.log('type', getType.data)
         yield put({
             type: 'GET_TYPEDATA',
             payload: getType.data

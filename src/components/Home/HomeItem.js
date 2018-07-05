@@ -4,7 +4,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import PropTypes from 'prop-types';
 //style
 import { withStyles } from '@material-ui/core/styles';
-// import { Paper, Typography, Card, Button, TextField } from '@material-ui/core';
+import { Paper, Typography, Card, Button, TextField } from '@material-ui/core';
 import { MenuItem, InputLabel, Select, FormControl, Divider, } from '@material-ui/core';
 
 
@@ -33,13 +33,18 @@ class HomeItem extends Component {
   
 
   //find button clicked ****** SPECIFY THE TYPE CLICKED query for type in db 
-  getTypeLocation =()=> {
+  getTypeLocation = () => {
     // console.log('get type',this.props.location)Current coding
-    console.log('get type',this.props.state.getDataReducer.type)
+    // console.log('get type',this.props.state.getDataReducer.type)
     this.props.dispatch({ type: 'GET_TYPE',
-                          payload: this.props.location.type})
-                          console.log(this.props.location.type);
+                          payload: this.state.type})
   }
+  // submit = () => {
+//     this.props.dispatch({
+//         type: 'GET_PERSON_DATA_COUNTY', 
+//         payload: this.state
+//     })
+// }
 
   handleChangeFor = (event) => {
     const target = event.target;
@@ -49,21 +54,14 @@ class HomeItem extends Component {
     this.setState({
       [name]: value
     }); 
-   
 }
-// submit = () => {
-//     this.props.dispatch({
-//         type: 'GET_PERSON_DATA_COUNTY', 
-//         payload: this.state
-//     })
-// }
 
   componentDidMount () {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
     console.log(this.props.state.getCountyReducer)
 }
 render(){
-      const { classes } = this.props;
+  const { classes } = this.props;
 
   return(
     <div>
@@ -87,8 +85,13 @@ render(){
         </FormControl>
       </div>
       {/* <select className="homeDropDown"> */}
-                          
-      <button onClick={this.getTypeLocation}>Find</button>
+      <Button
+        name="submit"
+        variant="flat"
+        color="primary"
+        onClick={this.getTypeLocation}>
+        Submit
+      </Button>
     </div>
   )
 }

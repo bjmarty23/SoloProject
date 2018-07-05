@@ -18,9 +18,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:lat/:lon', (req, res) => {
-    console.log('location GET route');
+    console.log('location GET local route');
     
-    // hard coded for prime
     let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY distance ;`
     pool.query(queryText, [req.params.lat, req.params.lon]).then((result) => {
         res.send(result.rows);
@@ -32,7 +31,7 @@ router.get('/:lat/:lon', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    console.log('location GET route'); 
+    console.log('location GET id route'); 
     let queryText = `SELECT * FROM location where id = $1;`
     pool.query(queryText, [req.params.id])
     .then((result) => {
