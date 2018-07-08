@@ -76,7 +76,7 @@ render(){
                     name: 'type',
                     id: 'type',
                 }}>
-                <MenuItem  value="restroom">Restroom</MenuItem>
+                <MenuItem  value="Restroom">Restroom</MenuItem>
                 <Divider />
                 <MenuItem  value="waterFountain">Water Fountain</MenuItem>
                 <Divider />

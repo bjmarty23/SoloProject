@@ -4,13 +4,13 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    console.log('location GET route');
+    console.log('location GET all route');
     
     
-    let queryText = `SELECT * FROM location;`
-    pool.query(queryText).then((result) => {
+    let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY distance, type by ASC;`
+    pool.query(queryText, [rep.params.type]).then((result) => {
         res.send(result.rows);
-        console.log(result.rows)
+        // console.log(result.rows)
     }).catch((error) => {
         console.log(error);
         res.sendStatus(500);
@@ -23,7 +23,7 @@ router.get('/:lat/:lon', (req, res) => {
     let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY distance ;`
     pool.query(queryText, [req.params.lat, req.params.lon]).then((result) => {
         res.send(result.rows);
-        console.log(result.rows)
+        // console.log(result.rows)
     }).catch((error) => {
         console.log(error);
         res.sendStatus(500);
