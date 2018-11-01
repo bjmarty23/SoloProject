@@ -7,12 +7,14 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 
 import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
-import HomeItem from './HomeItem';
+//import HomeItem from './HomeItem';
 // import Map from '../../components/Map/Map'
 // import Button from 'material-ui/Button';
 // import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import Card, { CardContent, } from 'material-ui/Card';
+import { Grid } from 'material-ui';
 
 
 const mapStateToProps = state => ({
@@ -65,9 +67,16 @@ class Home extends Component {
           <h1
             id="welcome"
           >
-            Welcome, {this.props.user.userName}!
+          <Grid item>
+        <Card  className="card" style={{margin: "20px"}} >
+        <CardContent>
+        Welcome, {this.props.user.userName}!
+        </CardContent>
+        </Card>
+        </Grid>
+        
             <div>
-              <HomeItem />
+              {/* <HomeItem /> */}
             </div>
           </h1>
           <pre className="locations">

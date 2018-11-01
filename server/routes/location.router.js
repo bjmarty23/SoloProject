@@ -2,20 +2,25 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-
-router.get('/', (req, res) => {
-    console.log('location GET all route');
+// **location type organize
+// router.get('/', (req, res) => {
+//     console.log('location GET all route');
     
     
-    let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY distance, type by ASC;`
-    pool.query(queryText, [rep.params.type]).then((result) => {
-        res.send(result.rows);
-        // console.log(result.rows)
-    }).catch((error) => {
-        console.log(error);
-        res.sendStatus(500);
-    });
-});
+//     let queryText = `SELECT * From location ORDER BY (type
+//         WHEN 'Restroom' THEN 1
+//         WHEN 'waterFountian' THEN 2
+//         WHEN 'Restaurant' THEN 3
+//         ELSE 4
+//     END);`
+//     pool.query(queryText, [req.params.type]).then((result) => {
+//         res.send(result.rows);
+//         // console.log(result.rows)
+//     }).catch((error) => {
+//         console.log(error);
+//         res.sendStatus(500);
+//     });
+// });
 
 router.get('/:lat/:lon', (req, res) => {
     console.log('location GET local route');
@@ -43,7 +48,7 @@ router.get('/:id', (req, res) => {
 });
 router.get('/:type', (req, res) => {
     console.log('location GET type route'); 
-    let queryText = `SELECT * FROM location WHERE type = $1;`
+    let queryText = `SELECT * FROM location WHERE "hetype" = $1;`
     pool.query(queryText, [req.params.type])
     .then((result) => {
         res.send(result.rows);
@@ -52,8 +57,6 @@ router.get('/:type', (req, res) => {
         res.sendStatus(500);
     });
 });
-//add route for :id to get info from database for that specific item and send it back 
-// reducer will hold onto that info
 
 router.post('/', (req, res) => {
     console.log('Location POST route');
