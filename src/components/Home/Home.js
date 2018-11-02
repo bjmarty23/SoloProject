@@ -7,7 +7,7 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 
 import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
-//import HomeItem from './HomeItem';
+import HomeItem from './HomeItem';
 // import Map from '../../components/Map/Map'
 // import Button from 'material-ui/Button';
 // import Icon from '@material-ui/core/Icon';
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
   state,
-  
+
 });
 
 class Home extends Component {
@@ -34,8 +34,8 @@ class Home extends Component {
     // this.props.history.push('home');
   }
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    this.props.dispatch({ type:'GET_LOCATION'});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    this.props.dispatch({ type: 'GET_LOCATION' });
   }
 
   componentDidUpdate() {
@@ -48,64 +48,63 @@ class Home extends Component {
     console.log(this.props.state)
     // this.props.history.push('home');
   }
-  
+
   render() {
     // const { classes } = this.props;
     // mapping locations
     let locations = this.props.location.map((location) => {
       // console.log('location ',location);
-      return ( <Detail key={location.id}
-                      location={location}/> 
+      return (<Detail key={location.id}
+        location={location} />
 
       )
     });
     let content = null;
-    
+
     if (this.props.user.userName) {
       content = (
         <div>
           <h1
             id="welcome"
           >
-          <Grid item>
-        <Card  className="card" style={{margin: "20px"}} >
-        <CardContent>
-        Welcome, {this.props.user.userName}!
-        </CardContent>
-        </Card>
-        </Grid>
-        
+            <Grid item>
+              <Card className="card" style={{ margin: "20px" }} >
+                <CardContent>
+                  Welcome, {this.props.user.userName}!
+                </CardContent>
+              </Card>
+            </Grid>
+
             <div>
-              {/* <HomeItem /> */}
+              <HomeItem />
             </div>
           </h1>
           <pre className="locations">
-          {locations}
+            {locations}
           </pre>
-        <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" >
-        <AddIcon />
-      </Button></Link>
+          <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" ><AddIcon /></Button>
+          </Link>
           <div>
-                    
+
           </div>
         </div>
-        );
-      }
-
-      return (
-
-        <div>
-          <Link to="/">
-            <button className="logout"
-              onClick={this.logout}
-              >Log Out
-            </button>
-          </Link>
-          { content }
-          {/* <Map isMarkerShown /> */}
-        </div>
-        
       );
+    }
+
+    return (
+
+      <div>
+        <Link to="/">
+          <button className="logout"
+            onClick={this.logout}
+          >Log Out
+            </button>
+        </Link>
+        {content}
+        {/* <Map isMarkerShown /> */}
+      </div>
+
+    );
   }
 }
 

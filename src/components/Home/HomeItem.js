@@ -78,9 +78,9 @@ render(){
                 }}>
                 <MenuItem  value="Restroom">Restroom</MenuItem>
                 <Divider />
-                <MenuItem  value="waterFountain">Water Fountain</MenuItem>
+                <MenuItem  value="Fountain">Water Fountain</MenuItem>
                 <Divider />
-                <MenuItem value="restaurant">Restaurant</MenuItem>
+                <MenuItem value="Restaurant">Restaurant</MenuItem>
             </Select>
         </FormControl>
       </div>
