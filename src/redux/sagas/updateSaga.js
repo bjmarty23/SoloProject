@@ -6,7 +6,7 @@ function* updateLocation(action) {
     console.log('in updateLocation', action.payload)
     try {
         console.log('ACTION HERE', action)
-        yield call(axios.put, `/api/location/${action.payload.location.id}`, action.payload);
+        yield call(axios.put, `/api/location/id/${action.payload.location.id}`, action.payload);
         console.log('added item', updateLocation);
         yield put({
             type: 'GET_LOCATION',

@@ -13,13 +13,13 @@ const getUserLocation = () => new Promise((resolve, reject) => {
 
 
 function* getType(action){
-    console.log('in getType saga')
+    console.log('getType, in dataSaga')
     try{ //getting type for search
         console.log (action.payload)
-        // const type = action.payload;
-        // console.log(type)
+        const type = action.payload;
+        console.log(type)
         // const type = this.props.location.type
-        const getType = yield call(axios.get, `/api/location/?type=${action.payload}`);
+        const getType = yield call(axios.get, `/api/location/type/${type}`);
         console.log('type', getType.data)
         yield put({
             type: 'GET_TYPEDATA',
@@ -41,7 +41,7 @@ function* getData(action){
         const {latitude, longitude} = location.coords; // used for production
         console.log('YOU ARE HERE', latitude, longitude);
         //pulling get on database for location of amen
-        const getDataResponse = yield call(axios.get, `/api/location/${latitude}/${longitude}`);
+        const getDataResponse = yield call(axios.get, `/api/location/distance/${latitude}/${longitude}`);
         console.log(getDataResponse.data)
         yield put({
             type: 'GET_LOCALDATA',
@@ -51,6 +51,7 @@ function* getData(action){
         console.log('ERROR in getDataSaga', error);
     }
 }
+
 
 function* getDataSaga() {
     // When GET_LOCATION, GET_DETAILS, GET_TYPE is dispached, call the function
