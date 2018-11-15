@@ -9,7 +9,7 @@ const publicAPI = {
     const salt = bcrypt.genSaltSync(SALT_WORK_FACTOR); // This generates a random salt
     // This next line hashes the user password and the random salt
     // this salt and hash (and not the actual password) will then get stored in the database
-    return .hashSync(password, salt);
+    return bcrypt.hashSync(password, salt);
   },
   comparePassword(candidatePassword, storedPassword) {
     /*
