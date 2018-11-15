@@ -1,12 +1,12 @@
 // No changes should be required in this file
 
-const  = require('');
+const bcrypt = require('bcrypt');
 
 const SALT_WORK_FACTOR = 10;
 
 const publicAPI = {
   encryptPassword(password) {
-    const salt = .genSaltSync(SALT_WORK_FACTOR); // This generates a random salt
+    const salt = bcrypt.genSaltSync(SALT_WORK_FACTOR); // This generates a random salt
     // This next line hashes the user password and the random salt
     // this salt and hash (and not the actual password) will then get stored in the database
     return .hashSync(password, salt);
@@ -19,7 +19,7 @@ const publicAPI = {
        If that result is the same as the stored password, then we have a match!
        If this interests you, check out this video https://www.youtube.com/watch?v=8ZtInClXe1Q
     */
-    return .compareSync(candidatePassword, storedPassword);
+    return bcrypt.compareSync(candidatePassword, storedPassword);
   },
 };
 
