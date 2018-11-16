@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
   state,
-});
+}); 
 
 const styles = theme => ({
   
