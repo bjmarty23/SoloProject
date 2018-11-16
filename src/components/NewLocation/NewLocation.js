@@ -71,10 +71,10 @@ class NewLocation extends Component {
     if (this.props.user.userName) {
       content = (
         <div className="newlocation">
-          <select className="newLocationDropDown"
+          Type:<select className="newLocationDropDown"
             // value={this.state.type}
             name="type" onChange={this.handleInputChangeFor('type')}>
-            <option>Type:</option>
+            <option>Select One</option>
             <option value="Restroom">Restroom</option>
             <option value="Fountain">Water Fountain</option>
             <option value="Restaurant">Restaurant</option>
@@ -85,7 +85,8 @@ class NewLocation extends Component {
             value={this.state.name}
             onChange={this.handleInputChangeFor('name')}
           /> <br />
-          Notes:<textarea rows="2"
+          Notes:<textarea 
+            rows="1"
             cols="40"
             type="notes"
             name="comment"
