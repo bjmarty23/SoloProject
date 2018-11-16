@@ -74,7 +74,7 @@ class NewLocation extends Component {
           <select className="newLocationDropDown"
             // value={this.state.type}
             name="type" onChange={this.handleInputChangeFor('type')}>
-            <option value="pick here">Type:</option>
+            <option>Type:</option>
             <option value="Restroom">Restroom</option>
             <option value="Fountain">Water Fountain</option>
             <option value="Restaurant">Restaurant</option>
@@ -85,12 +85,12 @@ class NewLocation extends Component {
             value={this.state.name}
             onChange={this.handleInputChangeFor('name')}
           /> <br />
-          <textarea rows="2"
+          Notes:<textarea rows="2"
             cols="40"
             type="notes"
             name="comment"
             value={this.state.notes}
-            placeholder="Enter text here.."
+            //placeholder="Enter text here.." 
             onChange={this.handleInputChangeFor('notes')}
             form="usrform">dsf</textarea>
           <br />
@@ -115,20 +115,22 @@ class NewLocation extends Component {
       <div>
 
         <Link to="/home">
-          <Button size="mini" variant="fab" color="primary" aria-label="add" onClick={this.back}><ReplyIcon /></Button>
+          <Button size="small" variant="fab" color="primary" aria-label="add" onClick={this.back}><ReplyIcon /></Button>
         </Link>
        
           <Grid item>
             <Card className="card" style={{ margin: "20px" }} >
               <CardContent>
+                <h3 id="newLocationGreeting">
                 Add new water source!
-         
+                </h3>
+{/*          
               </CardContent>
             </Card>
           </Grid>
           <Grid item>
             <Card className="card" style={{ margin: "20px" }} >
-              <CardContent>
+              <CardContent> */}
                 {content}
               </CardContent>
             </Card>

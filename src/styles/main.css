@@ -93,8 +93,8 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    text-decoration: underline;
-    color: #eee;
+    text-decoration: none;
+    color: #111;
 }
 .editModal {
     background-color: rgb(121, 206, 255);
@@ -151,7 +151,15 @@ li a:hover {
     border-top: 20px;
 }
 .newlocation {
-    text-align: right;
+    text-align: left;
+}
+#newLocationGreeting {
+    text-align: center;
+    size: 20px;
+}
+.newLocationDropDown {
+    size: 20px;
+    
 }
 .logout {
     font-size: 15px;
