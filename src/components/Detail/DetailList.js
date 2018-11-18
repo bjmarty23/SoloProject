@@ -152,27 +152,30 @@ class DetailList extends Component {
             open={this.state.open}
             onClose={this.handleClose}>
             <div style={getModalStyle()} className="editModal">
-            <Typography variant="title" id="modal-title">
+            <Typography variant="title" id="modal-title" style={{textAlign:"center"}}>
               Edit and Update
             </Typography>
+            <br />
             <div>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="Type">Type</InputLabel>
-                <Select
-                  value={this.state.type}
-                  onChange={this.handleInputChangeFor('type')}
-                  className={classes.textField}
-                  inputProps={{
-                      name: 'type',
-                      id: 'type',
-                  }}>
-                  <MenuItem  value="restroom">Restroom</MenuItem>
-                  <Divider />
-                  <MenuItem  value="waterFountain">Water Fountain</MenuItem>
-                  <Divider />
-                  <MenuItem  value="restaurant">Restaurant</MenuItem>
-                </Select>
-              </FormControl>
+              <div className="modalForm">
+                <FormControl className={classes.formControl}>
+                  <InputLabel htmlFor="Type" >Type</InputLabel>
+                    <Select
+                      value={this.state.type}
+                      onChange={this.handleInputChangeFor('type')}
+                      className={classes.textField}
+                      inputProps={{
+                          name: 'type',
+                          id: 'type',
+                      }}>
+                      <MenuItem  value="restroom">Restroom</MenuItem>
+                      <Divider />
+                      <MenuItem  value="waterFountain">Water Fountain</MenuItem>
+                      <Divider />
+                      <MenuItem  value="restaurant">Restaurant</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
                   <br />
                 Name:<input
                   type="text"
@@ -180,7 +183,7 @@ class DetailList extends Component {
                   value={this.state.name}
                   onChange={this.handleInputChangeFor('name')}
                   /> <br /> 
-                  <textarea rows="5" 
+                Notes:<textarea rows="5" 
                   cols="40" 
                   type="notes"
                   name="comment" 
@@ -200,13 +203,17 @@ class DetailList extends Component {
                   value={this.state.longitude}
                   onChange={this.handleInputChangeFor('longitude')}
                   /> 
-              </div><Link to="home"><Button
+              </div>
+              <br />
+              <div className="buttons">
+              <Link to="home"><Button
                variant="fab" color="primary" aria-label="add" onClick={this.updateLocation}>
                 <AddIcon />
                 </Button></Link>
               <Button variant="fab" color="primary" aria-label="Keyboard_Arrow_Left"  onClick={this.handleClose}>
               <ReplyIcon />
               </Button>
+              </div>
           </div>
         </Modal>
          </div>
