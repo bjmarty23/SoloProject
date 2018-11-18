@@ -107,8 +107,8 @@ class NewLocation extends Component {
             value={this.state.longitude}
             onChange={this.handleInputChangeFor('longitude')}
           />
-
         </div>
+        
       );
     }
 
@@ -125,19 +125,16 @@ class NewLocation extends Component {
                 <h3 id="newLocationGreeting">
                 Add new water source!
                 </h3>
-{/*          
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card className="card" style={{ margin: "20px" }} >
-              <CardContent> */}
+
                 {content}
+                <div className="buttons">
+                  <Link to="/home"><Button variant="fab" color="primary" aria-label="add" size="small" onClick={this.AddLocation}><AddIcon /></Button></Link>
+                  <Button variant="fab" color="primary" aria-label="add" size="small" onClick={this.locate}><LocationSearchingIcon /></Button>
+                </div>
               </CardContent>
             </Card>
           </Grid>
-        <Link to="/home"><Button variant="fab" color="primary" aria-label="add" size="small" onClick={this.AddLocation}><AddIcon /></Button></Link>
-        <Button variant="fab" color="primary" aria-label="add" size="small" onClick={this.locate}><LocationSearchingIcon /></Button>
+        {/* // removed button here, placed inside card. */}
       </div>
     );
   }

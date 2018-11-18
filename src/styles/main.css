@@ -96,12 +96,7 @@ li a:hover {
     text-decoration: none;
     color: #111;
 }
-.editModal {
-    background-color: rgb(121, 206, 255);
-    width: 300px;
-    border: 10px;
-    height: 480px;
-}
+
 
 #map {
     height: 100%;
@@ -146,12 +141,23 @@ li a:hover {
 
 }
 .modal {
-    text-align: center;
-    margin-top: 100px;
-    
+    text-align: left;
+   
+}
+.editModal {
+    background-color: rgb(121, 206, 255);
+    width: 300px;
+    border: 10px;
+    height: 400px;
+    padding-top: 35px;
+    padding-left: 20px;
 }
 .modal-title {
     border-top: 20px;
+    text-align: center;
+}
+.modalForm{
+    text-align: center;
 }
 .newlocation {
     text-align: left;
@@ -177,3 +183,6 @@ li a:hover {
 /* .username {
     margin-right: 100px;
 } */
+.buttons{
+    text-align: center;
+}
