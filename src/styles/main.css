@@ -134,6 +134,9 @@ li a:hover {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
+.button{
+   border-radius: 50%;
+}
 .detaillist {
     text-align: center;
     font-size:  25px;
