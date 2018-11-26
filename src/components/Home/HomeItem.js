@@ -58,7 +58,7 @@ class HomeItem extends Component {
 
   componentDidMount () {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    console.log(this.props.state.getCountyReducer)
+    // console.log(this.props.state.getCountyReducer)
 }
 render(){
   const { classes } = this.props;
