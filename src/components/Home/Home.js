@@ -80,8 +80,10 @@ class Home extends Component {
           <pre className="locations">
             {locations}
           </pre>
-          <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" id="button" ><AddIcon /></Button>
+          <div id="addButton">
+          <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" ><AddIcon /></Button>
           </Link>
+          </div>
           <div>
 
           </div>
@@ -93,15 +95,13 @@ class Home extends Component {
 
       <div>
         <Link to="/">
-          <button className="logout"
-            onClick={this.logout}
-          >Log Out
-            </button>
+          <button className="logout" onClick={this.logout}>Log Out 
+          </button>
         </Link>
         {content}
         {/* <Map isMarkerShown /> */}
       </div>
-
+        
     );
   }
 }

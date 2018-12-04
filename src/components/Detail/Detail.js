@@ -42,7 +42,7 @@ class Detail extends Component {
              {this.props.location.name}<br/>
              {this.props.location.type}<br/>
             Miles: {Math.floor((this.props.location.distance) * 100)/100}<br/><Button variant="raised" color="primary"  value={this.state.location}
-             onClick={() => this.getLocationDetails(this.state.location)}><Link to='/DetailList'>Click for details</Link></Button>
+             onClick={() => this.getLocationDetails(this.state.location)}><Link to='/DetailList' id="detailButton">Click for details</Link></Button>
         </div>
       ); 
     }

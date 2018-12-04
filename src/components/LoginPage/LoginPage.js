@@ -89,6 +89,7 @@ class LoginPage extends Component {
           </div>
           <div className="login">
             <input
+              id="loginButton"
               type="submit"
               name="submit"
               value="Login"
@@ -100,7 +101,7 @@ class LoginPage extends Component {
               value="Continue as guest"
             /> */}
             {/* <Link to="/home">Continue as guest</Link><br /> */}
-            <Link to="/register">Register</Link>
+            <Link to="/register" id="registerButton" >Register</Link>
           </div>
         </form>
       </div>
