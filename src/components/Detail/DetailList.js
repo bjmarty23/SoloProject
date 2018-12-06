@@ -161,7 +161,7 @@ class DetailList extends Component {
                 <FormControl className={classes.formControl}>
                   <InputLabel htmlFor="Type" >Type</InputLabel>
                     <Select
-                      value={this.state.type}
+                      value={this.state.type} //not auto input prev type, not letting new type selection
                       onChange={this.handleInputChangeFor('type')}
                       className={classes.textField}
                       inputProps={{

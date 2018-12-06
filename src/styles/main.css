@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Alegreya', Alegreya, Geneva, Verdana, Helvetica;
-    /* background: url("https://image.freepik.com/free-photo/blue-swimming-pool-rippled-water-detail_1258-710.jpg"); */
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0ErIK7IMohOC9cGy7adGqparMTxHiFVhe8qU9TzGPK6jVIo0v");
     /* background-attachment: fixed; */
     /* background-position: center bottom;  */
@@ -128,6 +127,11 @@ li a:hover {
     font-size: 25px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    text-decoration: none;
+}
+.button{
+   border-radius: 50%;
+   text-align: right;
 }
 .detaillist {
     text-align: center;
@@ -135,14 +139,16 @@ li a:hover {
     font-family: 'Courier New', Courier, monospace;
     margin-left: 10px;
     margin-right: 10px;
-
+}
+#detailButton{
+    text-decoration: none;
 }
 .modal {
     text-align: left;
    
 }
 .editModal {
-    background-color: rgb(121, 206, 255);
+    background-color: aliceblue;
     width: 300px;
     border: 10px;
     height: 400px;
@@ -169,17 +175,41 @@ li a:hover {
 }
 .logout {
     font-size: 15px;
+    padding: 5px;
+    margin-left: 20px;
+    margin-top: 5px;
+    background-color: white;
+    border: none;
+    color: darkblue;
+
 }
+
 
 .card {
     background-color: aliceblue;
 }
-.login {
-    margin: 30 px;
+#registerButton{
+    color: darkblue;
+    font-size: 15px;
+    text-decoration: none;
+}
+#loginButton{
+    font-size: 15px;
+    color: darkblue;
+    
 }
 /* .username {
     margin-right: 100px;
 } */
 .buttons{
     text-align: center;
+}
+#newLocationButton{
+    text-align: center;
+    position:fixed;
+	width:60px;
+	height:60px;
+	bottom:20px;
+	right:20px;
+	border-radius:50px;
 }
