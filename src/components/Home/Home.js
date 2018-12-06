@@ -75,17 +75,20 @@ class Home extends Component {
                 </CardContent>
               </Card>
             </Grid>
-          
           </h1>
+          
+          {/* <div id="newLocationButton"> */}
           <pre className="locations">
             {locations}
           </pre>
           <div id="newLocationButton">
+          {/* <Link to="/newlocation">
+            <Button variant="fab" color="primary" aria-label="add" className="mdc-fab__icon">
+              <span className="mdc-fab__icon material-icons"><AddIcon /></span>
+            </Button>
+          </Link> */}
           <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" ><AddIcon /></Button>
           </Link>
-          </div>
-          <div>
-
           </div>
         </div>
       );
