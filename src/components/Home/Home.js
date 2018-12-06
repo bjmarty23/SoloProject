@@ -80,7 +80,7 @@ class Home extends Component {
           <pre className="locations">
             {locations}
           </pre>
-          <div id="addButton">
+          <div id="newLocationButton">
           <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" ><AddIcon /></Button>
           </Link>
           </div>
