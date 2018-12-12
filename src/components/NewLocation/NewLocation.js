@@ -15,25 +15,49 @@ import { Grid } from 'material-ui';
 //gives you access to store 
 const mapStateToProps = state => ({
   user: state.user,
-  location: state.location
+  location: state.location,
+  latitude: state.getDataReducer.latitude,
+  state,
 });
+// let latitude ;
+// let longitude ;
 
 class NewLocation extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      latitude: '',
-      longitude: '',
+      // latitude: '',
+      // longitude: '',
       name: '',
       type: '',
       notes: '',
     }
   }
+  componentDidMount () {
+   this.locate()
+  }
   logout = () => {
     this.props.dispatch(triggerLogout());
     // this.props.history.push('home');
   }
+  // null setState need its own component or needs to setstate after locate() 
+  //write funtionality to sync to device location
+  locate = () => {
+   function success (position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    console.log(latitude, longitude);
+    //trying to setState for uaer location
+    // this.setState({
+    //   latitude: latitude,
+    //   longitude: longitude,
+    // })
+    // console.log('lat:', this.state)
+   }
+   navigator.geolocation.getCurrentPosition(success)
+  }
+
   AddLocation = (newType) => {
     // event.preventDefault();
     console.log('clicked', this.state)
@@ -60,10 +84,7 @@ class NewLocation extends Component {
       [propertyName]: event.target.value,
     });
   }
-  //write funtionality to sync to device location
-  locate = () => {
-    console.log('locate button clicked', this.state)
-  }
+  
 
   render() {
     let content = null;
@@ -95,12 +116,15 @@ class NewLocation extends Component {
             onChange={this.handleInputChangeFor('notes')}
             form="usrform">dsf</textarea>
           <br />
+          {/* // auto input user location when adding a newLocation */}
+          {/* Lat: {latitude} */}
           Lat:<input
             type="latitude"
             name="latitude"
-            value={this.state.latitude}
+            value= {this.state.latitude}
             onChange={this.handleInputChangeFor('latitude')}
-          /> <br />
+           />
+           <br />
           Long:<input
             type="longitude"
             name="longitude"
