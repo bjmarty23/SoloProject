@@ -173,6 +173,9 @@ li a:hover {
     size: 20px;
     
 }
+#locationMessage{
+    color:red;
+}
 .logout {
     font-size: 15px;
     padding: 5px;

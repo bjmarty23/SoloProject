@@ -19,44 +19,52 @@ const mapStateToProps = state => ({
   latitude: state.getDataReducer.latitude,
   state,
 });
-// let latitude ;
-// let longitude ;
+
 
 class NewLocation extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      // latitude: '',
-      // longitude: '',
+      latitude: '',
+      longitude: '',
       name: '',
       type: '',
       notes: '',
     }
   }
-  componentDidMount () {
-   this.locate()
+  componentWillMount () {
+   this.locate();
+    // console.log(this.state.latitude)
   }
   logout = () => {
     this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
   }
-  // null setState need its own component or needs to setstate after locate() 
   //write funtionality to sync to device location
   locate = () => {
-   function success (position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    console.log(latitude, longitude);
-    //trying to setState for uaer location
-    // this.setState({
-    //   latitude: latitude,
-    //   longitude: longitude,
-    // })
-    // console.log('lat:', this.state)
-   }
-   navigator.geolocation.getCurrentPosition(success)
+    navigator.geolocation.getCurrentPosition((position) => {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      console.log(latitude, longitude);
+      // setState for user location
+      this.setState({
+         latitude: latitude,
+         longitude: longitude,
+      });
+    });
   }
+
+  // locate = () => {
+   
+  //   function success (position) {
+  //    let latitude = position.coords.latitude;
+  //    let longitude = position.coords.longitude;
+  //    console.log(latitude, longitude);
+  //    //trying to setState for user location
+  //   }
+  //  console.log( latitude)
+  //   navigator.geolocation.getCurrentPosition(success)
+  //  }
 
   AddLocation = (newType) => {
     // event.preventDefault();
@@ -117,7 +125,7 @@ class NewLocation extends Component {
             form="usrform">dsf</textarea>
           <br />
           {/* // auto input user location when adding a newLocation */}
-          {/* Lat: {latitude} */}
+         <p id="locationMessage"> DO NOT change location unless different than current position!</p>
           Lat:<input
             type="latitude"
             name="latitude"
