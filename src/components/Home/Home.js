@@ -59,6 +59,7 @@ class Home extends Component {
         location={location} />
       )
     });
+    
 // concat state to for .sort
     // let locations = [].concat(this.props.location)
     // .sort((a, b) => a.type > b.type)
