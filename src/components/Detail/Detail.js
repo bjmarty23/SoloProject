@@ -10,14 +10,15 @@ import { Grid, Button } from 'material-ui';
 
 const mapStateToProps = state => ({
   user: state.user,
-  locations: state.locations
+  locations: state.locations,
+  type: state.type,
 });
 
 class Detail extends Component {
   state={
     location: this.props.location,
     name:this.props.location.name,
-    id:this.props.location.id
+    id:this.props.location.id 
   }
   getLocationDetails = (location) => {
     // console.log('clicked button', this.state.location);

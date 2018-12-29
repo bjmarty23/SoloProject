@@ -8,6 +8,7 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
 import HomeItem from './HomeItem';
+// import Type from './Type';
 // import Map from '../../components/Map/Map'
 // import Button from 'material-ui/Button';
 // import Icon from '@material-ui/core/Icon';
@@ -21,7 +22,7 @@ const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
   state,
-
+  // type: state.typeReducer,
 });
 
 class Home extends Component {
@@ -56,9 +57,16 @@ class Home extends Component {
       // console.log('location ',location);
       return (<Detail key={location.id}
         location={location} />
-
       )
     });
+// concat state to for .sort
+    // let locations = [].concat(this.props.location)
+    // .sort((a, b) => a.type > b.type)
+    // .map((location) => {
+    //   return (<Detail key={location.id}
+    //   location={location} />)
+    // });
+
     let content = null;
 
     if (this.props.user.userName) {
@@ -76,17 +84,13 @@ class Home extends Component {
               </Card>
             </Grid>
           </h1>
-          
-          {/* <div id="newLocationButton"> */}
+          {/* <Type /> */}
+         {/* {types} */}
           <pre className="locations">
             {locations}
           </pre>
+          
           <div id="newLocationButton">
-          {/* <Link to="/newlocation">
-            <Button variant="fab" color="primary" aria-label="add" className="mdc-fab__icon">
-              <span className="mdc-fab__icon material-icons"><AddIcon /></span>
-            </Button>
-          </Link> */}
           <Link to="/newlocation"><Button variant="fab" color="primary" aria-label="add" ><AddIcon /></Button>
           </Link>
           </div>

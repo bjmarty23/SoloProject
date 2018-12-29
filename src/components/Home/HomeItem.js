@@ -31,20 +31,23 @@ class HomeItem extends Component {
     }
   }
   
-
+  // cant use this because i would have to change detail state
   //find button clicked ****** SPECIFY THE TYPE CLICKED query for type in db 
-  getTypeLocation = () => {
-    // console.log('get type',this.props.location)Current coding
-    // console.log('get type',this.props.state.getDataReducer.type)
-    this.props.dispatch({ type: 'GET_TYPE',
-                          payload: this.state.type})
-  }
+  // getTypeLocation = () => {
+  //   // console.log('get type',this.props.location)Current coding
+  //   // console.log('get type',this.props.state.getDataReducer.type)
+  //   this.props.dispatch({ type: 'GET_TYPE',
+  //                         payload: this.state.type})
+  // }
   // submit = () => {
 //     this.props.dispatch({
 //         type: 'GET_PERSON_DATA_COUNTY', 
 //         payload: this.state
 //     })
 // }
+  getTypeLocation = () => {
+
+  }
 
   handleChangeFor = (event) => {
     const target = event.target;
