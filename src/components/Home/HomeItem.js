@@ -46,7 +46,8 @@ class HomeItem extends Component {
 //     })
 // }
   getTypeLocation = () => {
-
+    this.props.dispatch({ type: 'GET_TYPE',
+                          payload: this.state.type})
   }
 
   handleChangeFor = (event) => {
