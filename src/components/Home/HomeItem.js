@@ -11,6 +11,7 @@ import { MenuItem, InputLabel, Select, FormControl, Divider, } from '@material-u
 const mapStateToProps = state => ({
   user: state.user,
   location: state.getDataReducer,
+  
   state,
 }); 
 
@@ -30,6 +31,15 @@ class HomeItem extends Component {
     type: '',
     }
   }
+
+ getDerivedStateFromProps (nextProps) {
+    const type = nextProps;
+
+    if(type !== this.state.location) {
+      this.setState({location: type});
+      console.log(this.props.location);
+    }
+  }
   
   // cant use this because i would have to change detail state
   //find button clicked ****** SPECIFY THE TYPE CLICKED query for type in db 
@@ -45,10 +55,17 @@ class HomeItem extends Component {
 //         payload: this.state
 //     })
 // }
-  getTypeLocation = () => {
-    this.props.dispatch({ type: 'GET_TYPE',
-                          payload: this.state.type})
-  }
+
+getTypeLocation = () => {
+  this.props.dispatch({ type: 'GET_LOCATION',
+                        payload: this.state.location})
+}
+
+//adding type param in distance router
+  // getTypeLocation = () => {
+  //   this.props.dispatch({ type: 'GET_TYPE',
+  //                         payload: this.state.type})
+  // }
 
   handleChangeFor = (event) => {
     const target = event.target;
@@ -94,6 +111,8 @@ render(){
         variant="flat"
         color="primary"
         onClick={this.getTypeLocation}>
+        {/* can i write a function with conditional to update on click
+        is there a way to sort with the current distance sorting and then by type  */}
         Submit
       </Button>
     </div>

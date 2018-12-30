@@ -37,11 +37,12 @@ function* getData(action){
         // const latitude = 44.9780926;  // used for testing
         // const longitude = -93.2632734; // used for testing
         // this is grabbing current location of user
+        const type = action.payload
         const location = yield call(getUserLocation); // used for production
         const {latitude, longitude} = location.coords; // used for production
-        console.log('YOU ARE HERE', latitude, longitude);
+        console.log('YOU ARE HERE', latitude, longitude, type);
         //pulling get on database for location of amen
-        const getDataResponse = yield call(axios.get, `/api/location/distance/${latitude}/${longitude}`);
+        const getDataResponse = yield call(axios.get, `/api/location/distance/${latitude}/${longitude}/${type}`);
         console.log(getDataResponse.data)
         yield put({
             type: 'GET_LOCALDATA',
@@ -51,6 +52,27 @@ function* getData(action){
         console.log('ERROR in getDataSaga', error);
     }
 }
+//getData sage that works before adding type param
+// function* getData(action){
+//     console.log('in getDataSaga')
+//     try {// this is your location
+//         // const latitude = 44.9780926;  // used for testing
+//         // const longitude = -93.2632734; // used for testing
+//         // this is grabbing current location of user
+//         const location = yield call(getUserLocation); // used for production
+//         const {latitude, longitude} = location.coords; // used for production
+//         console.log('YOU ARE HERE', latitude, longitude);
+//         //pulling get on database for location of amen
+//         const getDataResponse = yield call(axios.get, `/api/location/distance/${latitude}/${longitude}`);
+//         console.log(getDataResponse.data)
+//         yield put({
+//             type: 'GET_LOCALDATA',
+//             payload: getDataResponse.data
+//         })
+//     } catch (error) {
+//         console.log('ERROR in getDataSaga', error);
+//     }
+// }
 
 
 function* getDataSaga() {

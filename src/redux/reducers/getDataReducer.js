@@ -1,17 +1,25 @@
- const getDataReducer = (state = [], action)=>{
+const getDataReducer = (state = [], action)=>{
 
+    // if (action.payload === 'GET_LOCALDATA') {
+    //     return action.payload;
+    // }else(action.payload === 'GET_TYPEDATA') {
+    //     return action.payload;
+    // } return state;
+
+
+
+//inital code for local data working not type 
     // if(action.type === 'GET_TYPEDATA'){
     //     console.log('in type reducer', action.payload);
     //     return action.payload;
-    // } 
-    // // return state;
-    // else(action.type === 'GET_LOCALDATA'){
-    //     console.log('in get data reducer', action.payload);
-    //     return action.payload;
     // } return state;
-// }
+    if(action.type === 'GET_LOCALDATA'){
+        console.log('in get data reducer', action.payload);
+        return action.payload;
+    } return state;
+}
      
-// export default getDataReducer;
+export default getDataReducer;
 
 // const INITIAL_STATE = {
 //     data: [],
@@ -20,19 +28,22 @@
 //   };
   
  
-    switch (action.type) {
-      case 'GET_TYPEDATA':
-        return {
-          ...state,
+    // switch (action.type) {
+    // //   case 'GET_TYPEDATA':
+    // //     return {
+    // //       ...state,
          
-        };
-      case 'GET_LOCALDATA':
-        return {
-          ...state,
-         
-        };
-      default:
-        return state;
-    }
-}
-export default getDataReducer;
+    // //     };
+    //     case "GET_LOCALDATA": {
+    //         return {
+    //         ...state,
+    //     };
+    //     break;
+    // }
+    //     default:
+    // }
+
+
+    
+// }
+// export default getDataReducer;
