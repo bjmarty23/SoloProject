@@ -32,14 +32,6 @@ class HomeItem extends Component {
     }
   }
 
- getDerivedStateFromProps (nextProps) {
-    const type = nextProps;
-
-    if(type !== this.state.location) {
-      this.setState({location: type});
-      console.log(this.props.location);
-    }
-  }
   
   // cant use this because i would have to change detail state
   //find button clicked ****** SPECIFY THE TYPE CLICKED query for type in db 
@@ -58,7 +50,7 @@ class HomeItem extends Component {
 
 getTypeLocation = () => {
   this.props.dispatch({ type: 'GET_LOCATION',
-                        payload: this.state.location})
+                        payload: this.state.type})
 }
 
 //adding type param in distance router

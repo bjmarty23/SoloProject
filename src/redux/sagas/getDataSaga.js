@@ -37,7 +37,8 @@ function* getData(action){
         // const latitude = 44.9780926;  // used for testing
         // const longitude = -93.2632734; // used for testing
         // this is grabbing current location of user
-        const type = action.payload
+        console.log(action.payload)
+        const type = action.payload;
         const location = yield call(getUserLocation); // used for production
         const {latitude, longitude} = location.coords; // used for production
         console.log('YOU ARE HERE', latitude, longitude, type);

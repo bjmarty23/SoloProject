@@ -4,9 +4,8 @@ const router = express.Router();
 
 router.get('/:lat/:lon/:type', (req, res) => {
     console.log('location GET local route');
-    
-    let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY distance WHERE "type" = $1;;`
-    pool.query(queryText, [req.params.lat, req.params.lon], [req.params.type])// type is erroring query = showing as blank
+    let queryText = `SELECT *, distance($1, $2, location.latitude, location.longitude) as distance FROM location ORDER BY $3, distance;`
+    pool.query(queryText, [req.params.lat, req.params.lon, req.params.type])
     .then((result) => {
         res.send(result.rows);
         // console.log(result.rows)
