@@ -1,5 +1,5 @@
 const getDataReducer = (state = [], action)=>{
-
+// if else statment for all data and type data
     // if (action.payload === 'GET_LOCALDATA') {
     //     return action.payload;
     // }else(action.payload === 'GET_TYPEDATA') {
