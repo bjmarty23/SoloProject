@@ -10,7 +10,7 @@ const getUserLocation = () => new Promise((resolve, reject) => {
     )
 });
 
-
+//****** call type and distance in sage to get both option in reducer *******/
 
 function* getType(action){
     console.log('getType, in dataSaga')
