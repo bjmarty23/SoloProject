@@ -48,7 +48,7 @@ class HomeItem extends Component {
 // }
 //i want to pull state but state is establishe after this dispatch
 getTypeLocation = () => {
-  this.props.dispatch({ type: 'GET_LOCATION',
+  this.props.dispatch({ type: 'GET_TYPE',
                         payload: this.state.type})
 }
 
