@@ -29,6 +29,7 @@ function* getType(action){
         console.log('error in get type saga', error);
     }
 }
+// ********going to switch back to two sagas that aim to the same reducer*******
 
 //grabs function before getting to store, and processes.
 function* getData(action){

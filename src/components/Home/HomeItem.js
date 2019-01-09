@@ -31,7 +31,6 @@ class HomeItem extends Component {
     type: '',
     }
   }
-
   
   // cant use this because i would have to change detail state
   //find button clicked ****** SPECIFY THE TYPE CLICKED query for type in db 
@@ -47,7 +46,7 @@ class HomeItem extends Component {
 //         payload: this.state
 //     })
 // }
-
+//i want to pull state but state is establishe after this dispatch
 getTypeLocation = () => {
   this.props.dispatch({ type: 'GET_LOCATION',
                         payload: this.state.type})
@@ -71,8 +70,8 @@ getTypeLocation = () => {
 
   componentDidMount () {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    // console.log(this.props.state.getCountyReducer)
 }
-
 render(){
   const { classes } = this.props;
 

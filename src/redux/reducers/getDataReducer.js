@@ -7,7 +7,7 @@ const getDataReducer = (state = [], action)=>{
     // } return state;
 
 
-
+// call both actions on reducer now that router has been updated
 //inital code for local data working not type 
     // if(action.type === 'GET_TYPEDATA'){
     //     console.log('in type reducer', action.payload);
