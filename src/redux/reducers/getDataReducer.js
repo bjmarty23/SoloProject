@@ -21,29 +21,4 @@ const getDataReducer = (state = [], action)=>{
      
 export default getDataReducer;
 
-// const INITIAL_STATE = {
-//     data: [],
-//     loading: false,
-//     error: ''
-//   };
-  
- 
-    // switch (action.type) {
-    // //   case 'GET_TYPEDATA':
-    // //     return {
-    // //       ...state,
-         
-    // //     };
-    //     case "GET_LOCALDATA": {
-    //         return {
-    //         ...state,
-    //     };
-    //     break;
-    // }
-    //     default:
-    // }
 
-
-    
-// }
-// export default getDataReducer;

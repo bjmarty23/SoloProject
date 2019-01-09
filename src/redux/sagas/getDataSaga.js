@@ -26,7 +26,7 @@ function* getType(action){
         const {latitude, longitude} = location.coords; // used for production
         console.log('YOU ARE HERE', latitude, longitude, type);
         //pulling get on database for location of amen
-        const getDataResponse = yield call(axios.get, `/api/location/distance/${latitude}/${longitude}/${type}`);
+        const getDataResponse = yield call(axios.get, `/api/location/type/${latitude}/${longitude}/${type}`);
         console.log(getDataResponse.data)
         yield put({
             type: 'GET_LOCALDATA',
