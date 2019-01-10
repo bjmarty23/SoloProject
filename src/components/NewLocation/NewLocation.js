@@ -54,17 +54,6 @@ class NewLocation extends Component {
     });
   }
 
-  // locate = () => {
-   
-  //   function success (position) {
-  //    let latitude = position.coords.latitude;
-  //    let longitude = position.coords.longitude;
-  //    console.log(latitude, longitude);
-  //    //trying to setState for user location
-  //   }
-  //  console.log( latitude)
-  //   navigator.geolocation.getCurrentPosition(success)
-  //  }
 
   AddLocation = (newType) => {
     // event.preventDefault();

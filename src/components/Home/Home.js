@@ -8,7 +8,6 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 import { Link } from 'react-router-dom';
 import Detail from '../Detail/Detail';
 import HomeItem from './HomeItem';
-// import Type from './Type';
 // import Map from '../../components/Map/Map'
 // import Button from 'material-ui/Button';
 // import Icon from '@material-ui/core/Icon';
@@ -36,8 +35,7 @@ class Home extends Component {
   }
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    this.props.dispatch({ type: 'GET_LOCATION',
-                          payload: this.state.type });
+    this.props.dispatch({ type: 'GET_LOCATION' });
   }
 
   componentDidUpdate() {
@@ -60,14 +58,7 @@ class Home extends Component {
         location={location} />
       )
     });
-    
-// concat state to for .sort
-    // let locations = [].concat(this.props.location)
-    // .sort((a, b) => a.type > b.type)
-    // .map((location) => {
-    //   return (<Detail key={location.id}
-    //   location={location} />)
-    // });
+
 
     let content = null;
 
