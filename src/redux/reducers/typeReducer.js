@@ -1,9 +1,9 @@
-const typeReducer = (state = [], action)=>{
+// const typeReducer = (state = [], action)=>{
 
-    if(action.type === 'GET_TYPEDATA'){
-        console.log('in type reducer', action.payload);
-        return action.payload;
-    } return state;
-}
+//     if(action.type === 'GET_TYPEDATA'){
+//         console.log('in type reducer', action.payload);
+//         return action.payload;
+//     } return state;
+// }
      
-export default typeReducer;
+// export default typeReducer;

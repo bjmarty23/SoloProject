@@ -77,28 +77,4 @@ router.delete('/:id', (req, res) => {
     }
   })
 
-//   console.log('user', req.user);
-//     if (req.isAuthenticated()) { //in order to post an item, user must be signed in
-//         let queryText = `UPDATE location ("latitude", "longitude", "name",
-//         "type", "notes", "person_id") VALUES ($1, $2, $3, $4, $5, $6);`;
-//         // `UPDATE location SET "latitude" = $1, "longitude" = $2, "name" = $3,
-//         //                                      "type" = $4, "notes" = $5, WHERE "person_id" = $6;`;
-// // pool.query(queryText, [updatedFood.latitude,
-// //                     updatedFood.longitude,
-// //                      updatedFood.name,
-// //                       updatedFood.type, 
-// //                      updatedFood.notes, 
-// //                      req.params.id]);
-//         pool.query(queryText, [req.body.latitude,
-//                               req.body.longitude,
-//                                 req.body.name,
-//                                 req.body.type,
-//                                 req.body.notes,
-//                                 req.user.id
-
-/**
- * Update an item if it's something the logged in user added
- */
-
-
 module.exports = router;
