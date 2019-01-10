@@ -40,12 +40,7 @@ class HomeItem extends Component {
   //   this.props.dispatch({ type: 'GET_TYPE',
   //                         payload: this.state.type})
   // }
-  // submit = () => {
-//     this.props.dispatch({
-//         type: 'GET_PERSON_DATA_COUNTY', 
-//         payload: this.state
-//     })
-// }
+  
 //i want to pull state but state is establishe after this dispatch
 getTypeLocation = () => {
   this.props.dispatch({ type: 'GET_TYPE',

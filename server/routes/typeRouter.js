@@ -16,9 +16,7 @@ router.get('/:lat/:lon/:type', (req, res) => {
 });
 module.exports = router;
 
-
-
-
+// just pulling by type,
 // router.get('/:type', (req, res) => {
 //     console.log('location GET type route'); 
 //     let queryText = `SELECT * FROM location WHERE "type" = $1;`
